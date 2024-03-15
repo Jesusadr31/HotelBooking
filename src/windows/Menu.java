@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package windows;
 
 import javax.swing.JOptionPane;
@@ -80,7 +77,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel5.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 538, 30));
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/windows/Imagen3.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Imagen3.png"))); // NOI18N
         jPanel5.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 130, 538, 339));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -97,6 +94,7 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 550, 490));
 
         jPanel4.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnSearchClientMain.setBackground(new java.awt.Color(0, 255, 255));
         btnSearchClientMain.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -108,6 +106,7 @@ public class Menu extends javax.swing.JFrame {
                 btnSearchClientMainActionPerformed(evt);
             }
         });
+        jPanel4.add(btnSearchClientMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 136, 177, 39));
 
         btnSearchReservationMain.setBackground(new java.awt.Color(0, 255, 255));
         btnSearchReservationMain.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -119,6 +118,7 @@ public class Menu extends javax.swing.JFrame {
                 btnSearchReservationMainActionPerformed(evt);
             }
         });
+        jPanel4.add(btnSearchReservationMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 209, 177, 37));
 
         jButton1.setBackground(new java.awt.Color(0, 255, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -130,6 +130,7 @@ public class Menu extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel4.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 60, 177, 37));
 
         btnHistoryRoomMain.setBackground(new java.awt.Color(0, 255, 255));
         btnHistoryRoomMain.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -141,6 +142,7 @@ public class Menu extends javax.swing.JFrame {
                 btnHistoryRoomMainActionPerformed(evt);
             }
         });
+        jPanel4.add(btnHistoryRoomMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 278, 177, 34));
 
         btnCheckinMain.setBackground(new java.awt.Color(0, 255, 255));
         btnCheckinMain.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -152,6 +154,7 @@ public class Menu extends javax.swing.JFrame {
                 btnCheckinMainActionPerformed(evt);
             }
         });
+        jPanel4.add(btnCheckinMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 342, 177, 38));
 
         btnCheckoutMain.setBackground(new java.awt.Color(0, 255, 255));
         btnCheckoutMain.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -163,39 +166,7 @@ public class Menu extends javax.swing.JFrame {
                 btnCheckoutMainActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSearchClientMain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSearchReservationMain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCheckinMain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnHistoryRoomMain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCheckoutMain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(btnSearchClientMain, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(btnSearchReservationMain, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(btnHistoryRoomMain, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(btnCheckinMain, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(btnCheckoutMain, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
-        );
+        jPanel4.add(btnCheckoutMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 413, 176, 36));
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(548, 40, 220, 490));
 
