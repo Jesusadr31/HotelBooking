@@ -26,21 +26,95 @@ public class CheckOut extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        txtNameClientCheckout = new javax.swing.JTextField();
+        txtLastNameClientCheckout = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        btnBackMain = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(0, 204, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Swis721 BlkEx BT", 0, 13)); // NOI18N
+        jLabel1.setText("Check-out");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 340, 40));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 40));
+
+        jPanel2.setBackground(new java.awt.Color(0, 255, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Swis721 BlkEx BT", 0, 11)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel2.setText("Ingresa los datos del cliente para finalizar su estadía.");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 440, 20));
+
+        jLabel6.setFont(new java.awt.Font("Swis721 BlkEx BT", 0, 11)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel6.setText("Nombre del Cliente");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 170, 30));
+
+        txtNameClientCheckout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNameClientCheckoutActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtNameClientCheckout, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 200, 30));
+
+        txtLastNameClientCheckout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtLastNameClientCheckoutActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtLastNameClientCheckout, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 200, 30));
+
+        jLabel5.setFont(new java.awt.Font("Swis721 BlkEx BT", 0, 11)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel5.setText("Apellido del Cliente");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 170, 30));
+
+        btnBackMain.setBackground(new java.awt.Color(0, 153, 153));
+        btnBackMain.setFont(new java.awt.Font("Swis721 BlkEx BT", 0, 12)); // NOI18N
+        btnBackMain.setForeground(new java.awt.Color(255, 255, 255));
+        btnBackMain.setText("Regresar al Menú");
+        btnBackMain.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackMainActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnBackMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 220, 40));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 460, 420));
+
+        jPanel3.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, 290, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtNameClientCheckoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameClientCheckoutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNameClientCheckoutActionPerformed
+
+    private void txtLastNameClientCheckoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLastNameClientCheckoutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtLastNameClientCheckoutActionPerformed
+
+    private void btnBackMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackMainActionPerformed
+        Menu vtna = new Menu();
+        vtna.show();
+        this.dispose();
+    }//GEN-LAST:event_btnBackMainActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +152,15 @@ public class CheckOut extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBackMain;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JTextField txtLastNameClientCheckout;
+    private javax.swing.JTextField txtNameClientCheckout;
     // End of variables declaration//GEN-END:variables
 }

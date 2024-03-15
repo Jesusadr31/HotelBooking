@@ -11,7 +11,7 @@ package windows;
 public class HistoryRoom extends javax.swing.JFrame {
 
     /**
-     * Creates new form HistoryRoom
+     * Creates new form SearchStatus
      */
     public HistoryRoom() {
         initComponents();
@@ -26,21 +26,120 @@ public class HistoryRoom extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        txtHistoryRoom = new javax.swing.JTextField();
+        btnSearchHistoryRoom = new javax.swing.JButton();
+        btnBackMain = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtAreaHistoryRoom = new javax.swing.JTextArea();
+        jLabel6 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jPanel2.setBackground(new java.awt.Color(51, 204, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Swis721 BlkEx BT", 0, 13)); // NOI18N
+        jLabel1.setText("Historial de Habitaciones");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 270, 40));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 40));
+
+        jPanel3.setBackground(new java.awt.Color(0, 255, 255));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Swis721 BlkEx BT", 0, 11)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel2.setText("Visualiza el historial de los clientes que se han alojado ");
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 480, 20));
+
+        jLabel3.setFont(new java.awt.Font("Swis721 BlkEx BT", 0, 11)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel3.setText("anteriormente en las habitaciones.");
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Swis721 BlkEx BT", 0, 11)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel4.setText("Ingresa el número de la habitación que deseas ");
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 470, 30));
+
+        jLabel5.setFont(new java.awt.Font("Swis721 BlkEx BT", 0, 11)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel5.setText("consultar:");
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, 20));
+        jPanel3.add(txtHistoryRoom, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 230, 30));
+
+        btnSearchHistoryRoom.setBackground(new java.awt.Color(0, 153, 153));
+        btnSearchHistoryRoom.setFont(new java.awt.Font("Swis721 BlkEx BT", 0, 12)); // NOI18N
+        btnSearchHistoryRoom.setForeground(new java.awt.Color(255, 255, 255));
+        btnSearchHistoryRoom.setText("Buscar");
+        btnSearchHistoryRoom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSearchHistoryRoom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchHistoryRoomActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnSearchHistoryRoom, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, 110, 30));
+
+        btnBackMain.setBackground(new java.awt.Color(0, 153, 153));
+        btnBackMain.setFont(new java.awt.Font("Swis721 BlkEx BT", 0, 12)); // NOI18N
+        btnBackMain.setForeground(new java.awt.Color(255, 255, 255));
+        btnBackMain.setText("Regresar al menú");
+        btnBackMain.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackMainActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnBackMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 260, 40));
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 480, 410));
+
+        jPanel4.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtAreaHistoryRoom.setEditable(false);
+        txtAreaHistoryRoom.setColumns(20);
+        txtAreaHistoryRoom.setRows(5);
+        txtAreaHistoryRoom.setTabSize(10);
+        txtAreaHistoryRoom.setAlignmentX(1.0F);
+        txtAreaHistoryRoom.setAlignmentY(1.0F);
+        jScrollPane1.setViewportView(txtAreaHistoryRoom);
+
+        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 86, -1, 286));
+
+        jLabel6.setFont(new java.awt.Font("Swis721 BlkEx BT", 0, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Clientes Hospedados:");
+        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 210, 30));
+
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 40, 310, 410));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSearchHistoryRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchHistoryRoomActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSearchHistoryRoomActionPerformed
+
+    private void btnBackMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackMainActionPerformed
+        Menu vtna = new Menu();
+        vtna.show();
+        this.dispose();
+    }//GEN-LAST:event_btnBackMainActionPerformed
 
     /**
      * @param args the command line arguments
@@ -68,6 +167,9 @@ public class HistoryRoom extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(HistoryRoom.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -78,5 +180,20 @@ public class HistoryRoom extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBackMain;
+    private javax.swing.JButton btnSearchHistoryRoom;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea txtAreaHistoryRoom;
+    private javax.swing.JTextField txtHistoryRoom;
     // End of variables declaration//GEN-END:variables
 }

@@ -87,6 +87,7 @@ public class SearchReservation extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(0, 153, 153));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        txtAreaClient.setEditable(false);
         txtAreaClient.setColumns(20);
         txtAreaClient.setRows(5);
         jScrollPane1.setViewportView(txtAreaClient);
