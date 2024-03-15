@@ -29,28 +29,79 @@ public class Menu extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnSearchClientMain = new javax.swing.JButton();
-        btnSearchReservationMain = new javax.swing.JButton();
-        btnHistoryRoomMain = new javax.swing.JButton();
-        btnCheckinMain = new javax.swing.JButton();
-        btnCheckoutMain = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        btnExitMain = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        btnSearchClientMain = new javax.swing.JButton();
+        btnSearchReservationMain = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        btnHistoryRoomMain = new javax.swing.JButton();
+        btnCheckinMain = new javax.swing.JButton();
+        btnCheckoutMain = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menú Principal");
         setBackground(new java.awt.Color(255, 255, 255));
         setLocationByPlatform(true);
-        setMinimumSize(new java.awt.Dimension(575, 450));
-        setPreferredSize(new java.awt.Dimension(575, 450));
+        setMinimumSize(new java.awt.Dimension(760, 558));
+        setPreferredSize(new java.awt.Dimension(760, 558));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, -1, -1));
 
+        jPanel2.setBackground(new java.awt.Color(51, 204, 255));
+        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Swis721 BlkEx BT", 0, 13)); // NOI18N
+        jLabel2.setText("Programa Hotel Booking");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 260, 40));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 40));
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel5.setBackground(new java.awt.Color(0, 255, 255));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Swis721 BlkEx BT", 1, 10)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel1.setText("ADMINISTRAR RESERVACIONES DE TODOS LOS CLIENTES A HOSPEDAR.");
+        jPanel5.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 550, 32));
+
+        jLabel3.setFont(new java.awt.Font("Swis721 BlkEx BT", 1, 10)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel3.setText("BIENVENIDO AL SISTEMA DE HOTEL BOOKING QUE LE PERIMITIRÁ");
+        jPanel5.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 538, 30));
+
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/windows/Imagen3.png"))); // NOI18N
+        jPanel5.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 130, 538, 339));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 550, 490));
+
+        jPanel4.setBackground(new java.awt.Color(0, 153, 153));
+
+        btnSearchClientMain.setBackground(new java.awt.Color(0, 255, 255));
+        btnSearchClientMain.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnSearchClientMain.setForeground(new java.awt.Color(0, 102, 102));
         btnSearchClientMain.setText("Buscar clientes");
         btnSearchClientMain.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSearchClientMain.addActionListener(new java.awt.event.ActionListener() {
@@ -58,8 +109,10 @@ public class Menu extends javax.swing.JFrame {
                 btnSearchClientMainActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSearchClientMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 170, 30));
 
+        btnSearchReservationMain.setBackground(new java.awt.Color(0, 255, 255));
+        btnSearchReservationMain.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnSearchReservationMain.setForeground(new java.awt.Color(0, 102, 102));
         btnSearchReservationMain.setText("Busqueda Reservación");
         btnSearchReservationMain.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSearchReservationMain.addActionListener(new java.awt.event.ActionListener() {
@@ -67,8 +120,21 @@ public class Menu extends javax.swing.JFrame {
                 btnSearchReservationMainActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSearchReservationMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 170, 30));
 
+        jButton1.setBackground(new java.awt.Color(0, 255, 255));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 102, 102));
+        jButton1.setText("Importar Excel");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        btnHistoryRoomMain.setBackground(new java.awt.Color(0, 255, 255));
+        btnHistoryRoomMain.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnHistoryRoomMain.setForeground(new java.awt.Color(0, 102, 102));
         btnHistoryRoomMain.setText("Historial de Habitaciones");
         btnHistoryRoomMain.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnHistoryRoomMain.addActionListener(new java.awt.event.ActionListener() {
@@ -76,8 +142,10 @@ public class Menu extends javax.swing.JFrame {
                 btnHistoryRoomMainActionPerformed(evt);
             }
         });
-        getContentPane().add(btnHistoryRoomMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 170, 30));
 
+        btnCheckinMain.setBackground(new java.awt.Color(0, 255, 255));
+        btnCheckinMain.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnCheckinMain.setForeground(new java.awt.Color(0, 102, 102));
         btnCheckinMain.setText("Check-in");
         btnCheckinMain.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCheckinMain.addActionListener(new java.awt.event.ActionListener() {
@@ -85,8 +153,10 @@ public class Menu extends javax.swing.JFrame {
                 btnCheckinMainActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCheckinMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 170, 30));
 
+        btnCheckoutMain.setBackground(new java.awt.Color(0, 255, 255));
+        btnCheckoutMain.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnCheckoutMain.setForeground(new java.awt.Color(0, 102, 102));
         btnCheckoutMain.setText("Check-out");
         btnCheckoutMain.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCheckoutMain.addActionListener(new java.awt.event.ActionListener() {
@@ -94,48 +164,41 @@ public class Menu extends javax.swing.JFrame {
                 btnCheckoutMainActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCheckoutMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, 170, 30));
 
-        jButton1.setText("Importar Excel");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 170, 30));
-
-        btnExitMain.setBackground(new java.awt.Color(153, 255, 255));
-        btnExitMain.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnExitMain.setText("X");
-        btnExitMain.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        btnExitMain.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnExitMain.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExitMainActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnExitMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 0, 50, 30));
-
-        jPanel2.setBackground(new java.awt.Color(51, 204, 255));
-        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setFont(new java.awt.Font("Swis721 BlkEx BT", 0, 12)); // NOI18N
-        jLabel2.setText("Programa Hotel Booking");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 250, 30));
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 30));
-
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 570, Short.MAX_VALUE)
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap(17, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnSearchClientMain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearchReservationMain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCheckinMain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnHistoryRoomMain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCheckoutMain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(btnSearchClientMain, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(btnSearchReservationMain, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(btnHistoryRoomMain, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(btnCheckinMain, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(btnCheckoutMain, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 570, 430));
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(548, 40, 200, 490));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -171,10 +234,9 @@ public class Menu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnCheckinMainActionPerformed
 
-    private void btnExitMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitMainActionPerformed
-        this.dispose();
-        JOptionPane.showMessageDialog(null, "Ha cerrado el programa.", "Finalizado", JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_btnExitMainActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -214,14 +276,18 @@ public class Menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCheckinMain;
     private javax.swing.JButton btnCheckoutMain;
-    private javax.swing.JButton btnExitMain;
     private javax.swing.JButton btnHistoryRoomMain;
     private javax.swing.JButton btnSearchClientMain;
     private javax.swing.JButton btnSearchReservationMain;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     // End of variables declaration//GEN-END:variables
 }
