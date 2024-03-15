@@ -5,6 +5,6 @@ package tree;
  *
  * @author chris
  */
-public class NodoTree {
+public class Tree {
     
 }

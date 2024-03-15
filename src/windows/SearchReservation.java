@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package windows;
 
 /**
@@ -26,21 +23,92 @@ public class SearchReservation extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        txtLastNameClient = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtFirstNameClient = new javax.swing.JTextField();
+        btnBackMain = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtAreaClient = new javax.swing.JTextArea();
+        btnSearchC = new javax.swing.JButton();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Busqueda de Clientes");
+        setLocationByPlatform(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(0, 204, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Swis721 BlkEx BT", 0, 13)); // NOI18N
+        jLabel1.setText("Realizar Búsqueda de Clientes");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 360, 40));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 40));
+
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, -1, -1));
+
+        jPanel3.setBackground(new java.awt.Color(0, 255, 255));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel3.add(txtLastNameClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 220, 40));
+
+        jLabel2.setFont(new java.awt.Font("Swis721 BlkEx BT", 1, 11)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel2.setText("Introduce el nombre del cliente:");
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 330, 40));
+
+        jLabel3.setFont(new java.awt.Font("Swis721 BlkEx BT", 1, 11)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel3.setText("Introduce el apellido del cliente:");
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 310, 40));
+        jPanel3.add(txtFirstNameClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 220, 40));
+
+        btnBackMain.setBackground(new java.awt.Color(0, 255, 255));
+        btnBackMain.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnBackMain.setForeground(new java.awt.Color(0, 102, 102));
+        btnBackMain.setText("Regresar al menú");
+        btnBackMain.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBackMain.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackMainActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnBackMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 320, 150, 30));
+
+        jPanel4.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtAreaClient.setColumns(20);
+        txtAreaClient.setRows(5);
+        jScrollPane1.setViewportView(txtAreaClient);
+
+        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 270, 210));
+
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 310, 370));
+
+        btnSearchC.setBackground(new java.awt.Color(0, 153, 153));
+        btnSearchC.setFont(new java.awt.Font("Swis721 BlkEx BT", 0, 12)); // NOI18N
+        btnSearchC.setForeground(new java.awt.Color(255, 255, 255));
+        btnSearchC.setText("BUSCAR");
+        btnSearchC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel3.add(btnSearchC, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 120, 30));
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 660, 370));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBackMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackMainActionPerformed
+        Menu vtna = new Menu();
+        vtna.show();
+        this.dispose();
+    }//GEN-LAST:event_btnBackMainActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +146,18 @@ public class SearchReservation extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBackMain;
+    private javax.swing.JButton btnSearchC;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea txtAreaClient;
+    private javax.swing.JTextField txtFirstNameClient;
+    private javax.swing.JTextField txtLastNameClient;
     // End of variables declaration//GEN-END:variables
 }
