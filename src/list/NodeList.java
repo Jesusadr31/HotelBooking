@@ -46,7 +46,7 @@ public class NodeList {
     }
     
     
-    public ClientHistory getClienth() {
+    public ClientHistory getClientHistory() {
         return clienth;
     }
 
@@ -54,7 +54,7 @@ public class NodeList {
         return next;
     }
 
-    public void setClienth(ClientHistory clienth) {
+    public void setClientHistory(ClientHistory clienth) {
         this.clienth = clienth;
     }
 

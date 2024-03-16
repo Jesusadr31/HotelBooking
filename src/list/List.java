@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package list;
 
 import client.ClientHistory;
@@ -102,12 +99,12 @@ public class List {
         NodeList currentNodo = head;
         String result = "";
         while(currentNodo != null){
-            result += "Nombre y apellido: " + currentNodo.getClienth().getName() + " " + currentNodo.getClienth().getLastname()+ "\n";
-            result += "Cédula: " + currentNodo.getClienth().getCi() + "\n";
-            result += "Email: " + currentNodo.getClienth().getMail() + "\n";
-            result += "Género: " + currentNodo.getClienth().getGender() + "\n";
-            result += "Salida " + currentNodo.getClienth().getArriveDate() + "\n";
-            result += "Num_habitacion: " + currentNodo.getClienth().getRoomnum() + "\n"+"\n";
+            result += "Nombre y apellido: " + currentNodo.getClientHistory().getName() + " " + currentNodo.getClientHistory().getLastname()+ "\n";
+            result += "Cédula: " + currentNodo.getClientHistory().getCi() + "\n";
+            result += "Email: " + currentNodo.getClientHistory().getMail() + "\n";
+            result += "Género: " + currentNodo.getClientHistory().getGender() + "\n";
+            result += "Salida " + currentNodo.getClientHistory().getArriveDate() + "\n";
+            result += "Num_habitacion: " + currentNodo.getClientHistory().getRoomnum() + "\n"+"\n";
             
             currentNodo = currentNodo.getNext();
             
@@ -130,7 +127,7 @@ public class List {
     public void print() {
         NodeList nodoActual = head;
         while (nodoActual != null) {
-            System.out.println(nodoActual.getClienth().getCi());
+            System.out.println(nodoActual.getClientHistory().getCi());
             nodoActual = nodoActual.getNext();
         }
     }

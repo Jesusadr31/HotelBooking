@@ -4,6 +4,7 @@ package tree;
 import client.ClientReservation;
 import client.Rooms;
 import list.List;
+import list.NodeList;
 
 /**
  *
@@ -19,13 +20,13 @@ public class Tree {
     }
     
     // Metodo para agregar un cliente al la lista de reservaciones
-    public void addClientReservation(int ci, ClientR client){
+    public void addClientReservation(int ci, ClientReservation client){
         root = insertReservation(root,ci,client);
         size++;
     }
     
     //Metodo privado recursivo de insertar un nodo al arbol
-    private NodeTree insertReservation(NodeTree node, int ci, ClientR client) {
+    private NodeTree insertReservation(NodeTree node, int ci, ClientReservation client) {
         if (node == null) {
             return new NodeTree(ci,client);
         }if (ci < node.getNum()){
@@ -124,10 +125,10 @@ public class Tree {
         List clientsroomNum = new List();
         NodeList currentNode = clienth.getHead();
         while(currentNode != null){
-            if(currentNode.getClienth().getRoomnum() == roomNum+1){
-                clientsroomNum.insertarFinalClientH(currentNode.getClienth());
+            if(currentNode.getClientHistory().getRoomnum() == roomNum+1){
+                clientsroomNum.insertarFinalClientH(currentNode.getClientHistory());
             }
-            if(currentNode.getClienth().getRoomnum() == roomNum+2){  
+            if(currentNode.getClientHistory().getRoomnum() == roomNum+2){  
                return clientsroomNum;
             }
             currentNode = currentNode.getNext();
