@@ -1,6 +1,7 @@
 
 package windows;
 
+import hotelbookingproyect.ReadCsv;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,6 +15,16 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        ReadCsv doc = new ReadCsv();
+        try{
+        
+            doc.Read();
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "No se pudo importar");
+        }
     }
 
     /**

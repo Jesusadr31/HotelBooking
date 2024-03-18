@@ -13,15 +13,24 @@ public class Global {
     private static Tree roomNum = new Tree();
     private static  Tree reservation = new Tree();
     private static  StatusHashTable status = new StatusHashTable(1000);
-    private static List list = new List();
+    private static List AvalaibleRoomNum = new List();
+    private static List Rooms = new List();
 
-    public static List getList() {
-        return list;
+    public static List getAvalaibleRoomNum() {
+        return AvalaibleRoomNum;
     }
 
-    public static void setList(List list) {
-        Global.list = list;
+    public static List getRooms() {
+        return Rooms;
     }
+
+    public static void setAvalaibleRoomNum(List AvalaibleRoomNum) {
+        Global.AvalaibleRoomNum = AvalaibleRoomNum;
+    }
+
+    public static void setRooms(List Rooms) {
+        Global.Rooms = Rooms;
+    }    
     
     public static Tree getRoomNum() {
         return roomNum;
@@ -45,6 +54,5 @@ public class Global {
 
     public static void setStatus(StatusHashTable status) {
         Global.status = status;
-    }
-    
+    }    
 }

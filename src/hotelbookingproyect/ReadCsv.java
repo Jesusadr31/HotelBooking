@@ -8,9 +8,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 
-import client.ClientHistory;
-import client.ClientReservation;
-import client.ClientStatus;
+import client.Client;
 import client.Rooms;
 import list.List;
 import list.NodeList;
@@ -24,15 +22,18 @@ public class ReadCsv {
     Tree reservations = Global.getReservation();
     StatusHashTable estados = Global.getStatus();
     Tree rooms = Global.getRoomNum();
-    List ListclientS = Global.getList();
+    
+    List Rooms = Global.getRooms();
+    
     
     private String [] values_reser;
     private String [] values_status;
     private String [] values_history;
     private String [] values_rooms;
     
+    private List ListclientS = new List();
     private List clientHclass = new List();
-    private List roomsclass = new List();
+    private int [] clientSroomNum;
     
     
     private List numRooms = new List();
@@ -53,8 +54,9 @@ public class ReadCsv {
             while ((line = reser.readLine()) != null) {
                 if (cont > 0) {
                     values_reser = line.split(",");
-                    ClientReservation client = new ClientReservation(values_reser[0], values_reser[1], values_reser[2], values_reser[3], values_reser[4], values_reser[5], values_reser[6], values_reser[7], values_reser[8]);
-                    reservations.addClientReservation(Ci(values_reser), client);
+                    
+                    reservations.addClientReservation(Ci(values_reser), new Client("",values_reser[0], values_reser[1], values_reser[2], values_reser[3], values_reser[4], values_reser[5], values_reser[6], values_reser[7], values_reser[8]));
+                    
                 }
                 cont += 1;
             }
@@ -65,23 +67,31 @@ public class ReadCsv {
             while ((line = sta.readLine()) != null) {
                 if (cont > 0) {
                     values_status = line.split(",");
-                    ListclientS.insertarFinalClientS(new ClientStatus(values_status[0], values_status[1], values_status[2], values_status[3], values_status[4], values_status[5], values_status[6]));
-                    estados.addClientTable(values_status[0], values_status[1], values_status[2], values_status[3], values_status[4], values_status[5], values_status[6]);
+                    ListclientS.insertarFinal(new Client(values_status[0],"",values_status[1], values_status[2],values_status[3], values_status[4],"", values_status[5], values_status[6],""));
+                    if(!values_status[0].equals("")){
+                        estados.addClientTable(values_status[0],"",values_status[1], values_status[2],values_status[3], values_status[4],"", values_status[5], values_status[6],"");
+                    }
                 }
                 cont += 1;
             }
             cont=0;
+            
+            clientSroomNum = roomNumAvailable(ListclientS);
+            Global.setAvalaibleRoomNum(AvalaibleRoomNum(clientSroomNum));
+            
+            
             
             //Importar el archivo de historicos   
             BufferedReader his = new BufferedReader(new FileReader(filePathHistory)); 
             while ((line = his.readLine()) != null) {
                 if (cont > 0) {
                     values_history = line.split(",");
-                    clientHclass.insertarFinalClientH(new ClientHistory(values_history[0], values_history[1], values_history[2], values_history[3], values_history[4], values_history[5], Integer.parseInt(values_history[6])));
+                    clientHclass.insertarFinal(new Client(values_history[6],values_history[0], values_history[1], values_history[2], values_history[3],"","", values_history[4], values_history[5], ""));
                 }
                 cont += 1;
             }
             cont=0;
+            
             
             //Importar el archivo de habitaciones (Guardando numero de habitaciones en un array)
             BufferedReader ro = new BufferedReader(new FileReader(filePathRooms)); 
@@ -100,8 +110,8 @@ public class ReadCsv {
             while ((line = ro2.readLine()) != null) {
                 if (cont > 0) {
                     values_rooms = line.split(",");
-                    roomsclass.insertarFinalRooms(new Rooms(Integer.parseInt(values_rooms[0]), values_rooms[1], values_rooms[2]));
-                    rooms.addClientH(convertRoomNums(numRooms),clientHclass,roomsclass);
+                    Rooms.insertarFinalRooms(new Rooms(Integer.parseInt(values_rooms[0]), values_rooms[1], values_rooms[2]));
+                    rooms.addClientH(convertRoomNums(numRooms),clientHclass,Rooms);
                     
                 }
                 cont += 1;
@@ -122,11 +132,9 @@ public class ReadCsv {
         for(int i = 0;i < client_id.length;i++){
             Str += client_id[i];
         }
-        return Integer.parseInt(Str);
-        
+        return Integer.parseInt(Str);  
     }
-    
-    
+
     public int [] convertRoomNums(List listNums){
         int tamaño = listNums.getSize();
         int[] array = new int[tamaño];
@@ -139,5 +147,47 @@ public class ReadCsv {
         }
         return array;
     }
+    
+    public int [] roomNumAvailable(List listclientS){
+        int tamaño = listclientS.getSize();
+        int[] array = new int[tamaño];
+        NodeList currentNode = listclientS.getHead();
+        int i = 0;
+        while (currentNode != null) {
+            if(!currentNode.getClient().getRoomNum().equals("")){
+                array[i] = Integer.parseInt(currentNode.getClient().getRoomNum());
+            } 
+            currentNode = currentNode.getNext();
+            i++;
+        }
+        return array;
+    }
+
+    public List AvalaibleRoomNum(int[] busyRooms) {
+        List list = new List();
+        // Encuentra el valor máximo y mínimo
+        int min = busyRooms[0];
+        int max = busyRooms[0];
+        for (int i = 1; i < busyRooms.length; i++) {
+            if (busyRooms[i] < min) min = busyRooms[i];
+            if (busyRooms[i] > max) max = busyRooms[i];
+        }
+
+        // Crea un arreglo booleano para marcar los números presentes
+        boolean[] marcados = new boolean[max - min + 1];
+
+        // Marca los números presentes
+        for (int num : busyRooms) {
+            marcados[num - min] = true;
+        }
+        // Identifica y muestra los números faltantes
+        for (int i = 0; i < marcados.length; i++) {
+            if (!marcados[i]) {
+                list.insertarFinalRoomsNum(i + min);
+            }
+        }
+        return list;
+    }
 } 
 
+   

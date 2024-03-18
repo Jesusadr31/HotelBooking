@@ -1,7 +1,7 @@
 
 package tree;
 
-import client.ClientReservation;
+import client.Client;
 import client.Rooms;
 import list.List;
 
@@ -11,12 +11,12 @@ import list.List;
  */
 public class NodeTree {
     private int num;
-    private ClientReservation clientR;
+    private Client clientR;
     private List clientH = new List();
     private Rooms rooms;
     private NodeTree left,right;
     
-    public NodeTree(int id,ClientReservation client){
+    public NodeTree(int id,Client client){
         this.num = id;
         this.clientR = client;
         this.left = this.right = null;
@@ -45,7 +45,7 @@ public class NodeTree {
         this.num = id;
     }
 
-    public void setClientReservation(ClientReservation client) {
+    public void setClientR(Client client) {
         this.clientR = client;
     }
 
@@ -57,7 +57,7 @@ public class NodeTree {
         this.rooms = rooms;
     }
      
-    public ClientReservation getClientReservation() {
+    public Client getClientR() {
         return clientR;
     }
     

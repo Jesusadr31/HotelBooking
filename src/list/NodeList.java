@@ -1,8 +1,7 @@
 
 package list;
 
-import client.ClientHistory;
-import client.ClientStatus;
+import client.Client;
 import client.Rooms;
 
 /**
@@ -10,14 +9,13 @@ import client.Rooms;
  * @author Jesus
  */
 public class NodeList {
-    private ClientHistory clienth;
     private Rooms rooms;
-    private ClientStatus clients;
+    private Client client;
     private int roomNum;
     private NodeList next;
     
-    public NodeList(ClientHistory clienth){
-        this.clienth = clienth;
+    public NodeList(Client client){
+        this.client = client;
         this.next = null;
     }
    
@@ -27,10 +25,6 @@ public class NodeList {
         this.next = null;
     }
     
-    public NodeList(ClientStatus clients){
-        this.clients = clients;
-        this.next = null;
-    }
     
     public NodeList(int roomNum){
         this.roomNum = roomNum;
@@ -46,18 +40,6 @@ public class NodeList {
     }
     
     
-    public ClientHistory getClientHistory() {
-        return clienth;
-    }
-
-    public NodeList getNext() {
-        return next;
-    }
-
-    public void setClientHistory(ClientHistory clienth) {
-        this.clienth = clienth;
-    }
-
     public void setNext(NodeList next) {
         this.next = next;
     }
@@ -72,8 +54,15 @@ public class NodeList {
         this.rooms = rooms;
     }
 
-    public ClientStatus getClients() {
-        return clients;
+    public Client getClient() {
+        return client;
     }
-    
+
+    public NodeList getNext() {
+        return next;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
 }

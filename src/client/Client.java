@@ -5,7 +5,8 @@ package client;
  *
  * @author chris
  */
-public class ClientReservation {
+public class Client {
+    private String roomNum;
     private String ci;
     private String name;
     private String lastname;
@@ -16,7 +17,8 @@ public class ClientReservation {
     private String arriveDate;
     private String departureDate;
     
-    public ClientReservation(String ci,String name,String lastname,String mail,String gender,String roomType,String phoneNumber,String arriveDate,String departureDate){
+    public Client(String roomNum,String ci,String name,String lastname,String mail,String gender,String roomType,String phoneNumber,String arriveDate,String departureDate){
+        this.roomNum = roomNum;
         this.ci = ci;
         this.name = name;
         this.lastname = lastname;
@@ -27,12 +29,22 @@ public class ClientReservation {
         this.arriveDate = arriveDate;
         this.departureDate = departureDate;
     }
-   
     
-    public String showInfo() {
+    public String showHistory() {
         String result = "";
         result += "Nombre y apellido: " + name + " " + lastname + "\n";
         result += "Cédula: " + ci + "\n";
+        result += "Email: " + mail + "\n";
+        result += "Género: " + gender + "\n";
+        result += "Llegada: " + arriveDate + "\n";
+        result += "Num_Hab: " + roomNum + "\n";
+        return result;
+    }
+    
+    public String showReservation() {
+        String result = "";
+        result += "Cédula: " + ci + "\n";
+        result += "Nombre y apellido: " + name + " " + lastname + "\n";
         result += "Email: " + mail + "\n";
         result += "Género: " + gender + "\n";
         result += "Tipo de habitación: " + roomType + "\n";
@@ -41,9 +53,32 @@ public class ClientReservation {
         result += "Salida: " + departureDate + "\n";
         return result;
     }
+    
+    public String showStatus() {
+        String result = "";
+        result += "Numero Habitacion :" + roomNum + "\n";
+        result += "Nombre y apellido: " + name + " " + lastname + "\n";
+        result += "Email: " + mail + "\n";
+        result += "Género: " + gender + "\n";
+        result += "Telefono" + phoneNumber + "\n";
+        result += "Llegada: " + arriveDate + "\n";
+        return result;
+    }
+
+    public String getRoomNum() {
+        return roomNum;
+    }
 
     public String getCi() {
         return ci;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getLastname() {
+        return lastname;
     }
 
     public String getMail() {
@@ -70,8 +105,20 @@ public class ClientReservation {
         return departureDate;
     }
 
+    public void setRoomNum(String roomNum) {
+        this.roomNum = roomNum;
+    }
+
     public void setCi(String ci) {
         this.ci = ci;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     public void setMail(String mail) {
@@ -96,25 +143,7 @@ public class ClientReservation {
 
     public void setDepartureDate(String departureDate) {
         this.departureDate = departureDate;
-    }
-    
-    
-    public String getName() {
-        return name;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
-    
+    }    
 }
+   
+

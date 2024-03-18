@@ -1,14 +1,9 @@
 
 package list;
 
-import client.ClientHistory;
-import client.ClientStatus;
+import client.Client;
 import client.Rooms;
 
-/**
- *
- * @author Jesus
- */
 public class List {
     private NodeList head;
     private int size;
@@ -21,8 +16,8 @@ public class List {
         return head == null;
     }
     
-    public void insertarInicio(ClientHistory clienth){
-        NodeList newNodo = new NodeList(clienth);
+    public void insertarInicio(Client client){
+        NodeList newNodo = new NodeList(client);
         if(isEmpty()){
             head = newNodo;
  
@@ -33,23 +28,8 @@ public class List {
         size ++;
     }
     
-    public void insertarFinalClientH(ClientHistory clienth){
-        NodeList newNode = new NodeList(clienth);
-        if(isEmpty()){
-            head = newNode;
-        }
-        else{
-            NodeList currentNodo = head;
-            while(currentNodo.getNext() != null){
-                currentNodo = currentNodo.getNext();
-            }
-            currentNodo.setNext(newNode);
-        }
-        size++;
-    }
-    
-    public void insertarFinalClientS(ClientStatus clienth){
-        NodeList newNode = new NodeList(clienth);
+    public void insertarFinal(Client client){
+        NodeList newNode = new NodeList(client);
         if(isEmpty()){
             head = newNode;
         }
@@ -95,16 +75,16 @@ public class List {
     }
     
     
-    public String printClientH(){
+    public String printClient(){
         NodeList currentNodo = head;
         String result = "";
         while(currentNodo != null){
-            result += "Nombre y apellido: " + currentNodo.getClientHistory().getName() + " " + currentNodo.getClientHistory().getLastname()+ "\n";
-            result += "Cédula: " + currentNodo.getClientHistory().getCi() + "\n";
-            result += "Email: " + currentNodo.getClientHistory().getMail() + "\n";
-            result += "Género: " + currentNodo.getClientHistory().getGender() + "\n";
-            result += "Salida " + currentNodo.getClientHistory().getArriveDate() + "\n";
-            result += "Num_habitacion: " + currentNodo.getClientHistory().getRoomnum() + "\n"+"\n";
+            result += "Nombre y apellido: " + currentNodo.getClient().getName() + " " + currentNodo.getClient().getLastname()+ "\n";
+            result += "Cédula: " + currentNodo.getClient().getCi() + "\n";
+            result += "Email: " + currentNodo.getClient().getMail() + "\n";
+            result += "Género: " + currentNodo.getClient().getGender() + "\n";
+            result += "Salida " + currentNodo.getClient().getArriveDate() + "\n";
+            result += "Num_habitacion: " + currentNodo.getClient().getRoomNum() + "\n"+"\n";
             
             currentNodo = currentNodo.getNext();
             
@@ -124,10 +104,17 @@ public class List {
         }return result;
     }
     
+    public void printCi() {
+        NodeList nodoActual = head;
+        while (nodoActual != null) {
+            System.out.println(nodoActual.getClient().getCi());
+            nodoActual = nodoActual.getNext();
+        }
+    }
     public void print() {
         NodeList nodoActual = head;
         while (nodoActual != null) {
-            System.out.println(nodoActual.getClientHistory().getCi());
+            System.out.println(nodoActual.getRoomNum());
             nodoActual = nodoActual.getNext();
         }
     }
@@ -147,6 +134,5 @@ public class List {
     public void setSize(int size) {
         this.size = size;
     }
-    
-    
+
 }
