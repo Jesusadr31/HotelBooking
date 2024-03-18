@@ -1,11 +1,16 @@
 
 package windows;
 
+import hotelbookingproyect.Global;
+import javax.swing.JOptionPane;
+import tree.Tree;
+
 /**
  *
  * @author Jesús
  */
 public class HistoryRoom extends javax.swing.JFrame {
+    Tree rooms = Global.getRoomNum();
 
     /**
      * Creates new form SearchStatus
@@ -115,13 +120,13 @@ public class HistoryRoom extends javax.swing.JFrame {
         txtAreaHistoryRoom.setAlignmentY(1.0F);
         jScrollPane1.setViewportView(txtAreaHistoryRoom);
 
-        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 86, -1, 286));
+        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 86, 270, 286));
 
         jLabel6.setFont(new java.awt.Font("Swis721 BlkEx BT", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Clientes Hospedados:");
-        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 210, 30));
+        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 210, 30));
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 40, 310, 410));
 
@@ -129,7 +134,15 @@ public class HistoryRoom extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSearchHistoryRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchHistoryRoomActionPerformed
-        // TODO add your handling code here:
+        try{
+            int numRoom = Integer.parseInt(txtHistoryRoom.getText());
+            txtAreaHistoryRoom.setText(rooms.searchClientsHistory(numRoom).printClient());
+            
+            
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Valor inválido");
+        }
     }//GEN-LAST:event_btnSearchHistoryRoomActionPerformed
 
     private void btnBackMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackMainActionPerformed

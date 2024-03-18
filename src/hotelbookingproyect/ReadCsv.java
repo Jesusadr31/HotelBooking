@@ -38,11 +38,11 @@ public class ReadCsv {
     
     private List numRooms = new List();
     
-    private String filePathReservations = "C:\\Users\\chris\\OneDrive\\Escritorio\\BorradorHotelBooking\\Booking_hotel - reservas.csv";
-    private String filePathStatus = "C:\\Users\\chris\\OneDrive\\Escritorio\\BorradorHotelBooking\\Booking_hotel - estado.csv";
-    private String filePathHistory = "C:\\Users\\chris\\OneDrive\\Escritorio\\BorradorHotelBooking\\Booking_hotel - Historico.csv";
-    private String filePathRooms= "C:\\Users\\chris\\OneDrive\\Escritorio\\BorradorHotelBooking\\Booking_hotel - habitaciones.csv";
-    private String filePathRooms2= "C:\\Users\\chris\\OneDrive\\Escritorio\\BorradorHotelBooking\\Booking_hotel - habitaciones.csv";
+    private String filePathReservations = "C:\\Users\\Jesús\\OneDrive\\Escritorio\\HotelBookingProyect\\Booking_hotel - reservas.csv";
+    private String filePathStatus = "C:\\Users\\Jesús\\OneDrive\\Escritorio\\HotelBookingProyect\\Booking_hotel - estado.csv";
+    private String filePathHistory = "C:\\Users\\Jesús\\OneDrive\\Escritorio\\HotelBookingProyect\\Booking_hotel - Historico.csv";
+    private String filePathRooms= "C:\\Users\\Jesús\\OneDrive\\Escritorio\\HotelBookingProyect\\Booking_hotel - habitaciones.csv";
+    private String filePathRooms2= "C:\\Users\\Jesús\\OneDrive\\Escritorio\\HotelBookingProyect\\Booking_hotel - habitaciones.csv";
     String line = "";
     int cont = 0;
     
@@ -118,10 +118,10 @@ public class ReadCsv {
             }
             
             
-            JOptionPane.showMessageDialog(null, "SE HA IMPORTADO");
+            //JOptionPane.showMessageDialog(null, "SE HA IMPORTADO");
         
         }catch(IOException e){
-            JOptionPane.showMessageDialog(null, "NO SE PUDO IMPORTAR");
+            JOptionPane.showMessageDialog(null, "No se pudo importar");
         }  
      
     }

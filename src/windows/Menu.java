@@ -47,7 +47,6 @@ public class Menu extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         btnSearchClientMain = new javax.swing.JButton();
         btnSearchReservationMain = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         btnHistoryRoomMain = new javax.swing.JButton();
         btnCheckinMain = new javax.swing.JButton();
         btnCheckoutMain = new javax.swing.JButton();
@@ -70,7 +69,7 @@ public class Menu extends javax.swing.JFrame {
         jLabel2.setText("Programa Hotel Booking");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 260, 40));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 40));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 40));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -117,7 +116,7 @@ public class Menu extends javax.swing.JFrame {
                 btnSearchClientMainActionPerformed(evt);
             }
         });
-        jPanel4.add(btnSearchClientMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 136, 177, 39));
+        jPanel4.add(btnSearchClientMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 177, 39));
 
         btnSearchReservationMain.setBackground(new java.awt.Color(0, 255, 255));
         btnSearchReservationMain.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -129,19 +128,7 @@ public class Menu extends javax.swing.JFrame {
                 btnSearchReservationMainActionPerformed(evt);
             }
         });
-        jPanel4.add(btnSearchReservationMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 209, 177, 37));
-
-        jButton1.setBackground(new java.awt.Color(0, 255, 255));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 102, 102));
-        jButton1.setText("Importar Excel");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel4.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 60, 177, 37));
+        jPanel4.add(btnSearchReservationMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 177, 37));
 
         btnHistoryRoomMain.setBackground(new java.awt.Color(0, 255, 255));
         btnHistoryRoomMain.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -153,7 +140,7 @@ public class Menu extends javax.swing.JFrame {
                 btnHistoryRoomMainActionPerformed(evt);
             }
         });
-        jPanel4.add(btnHistoryRoomMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 278, 177, 34));
+        jPanel4.add(btnHistoryRoomMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 177, 34));
 
         btnCheckinMain.setBackground(new java.awt.Color(0, 255, 255));
         btnCheckinMain.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -165,7 +152,7 @@ public class Menu extends javax.swing.JFrame {
                 btnCheckinMainActionPerformed(evt);
             }
         });
-        jPanel4.add(btnCheckinMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 342, 177, 38));
+        jPanel4.add(btnCheckinMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 177, 38));
 
         btnCheckoutMain.setBackground(new java.awt.Color(0, 255, 255));
         btnCheckoutMain.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -177,15 +164,15 @@ public class Menu extends javax.swing.JFrame {
                 btnCheckoutMainActionPerformed(evt);
             }
         });
-        jPanel4.add(btnCheckoutMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 413, 176, 36));
+        jPanel4.add(btnCheckoutMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 176, 36));
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(548, 40, 220, 490));
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(548, 40, 230, 490));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSearchReservationMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchReservationMainActionPerformed
-       SearchStatus vtna = new SearchStatus();
+       SearchReservation vtna = new SearchReservation();
         vtna.show();
         this.dispose();
     }//GEN-LAST:event_btnSearchReservationMainActionPerformed
@@ -198,7 +185,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void btnSearchClientMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchClientMainActionPerformed
         
-        SearchReservation vtna = new SearchReservation();
+        SearchStatus vtna = new SearchStatus();
         vtna.show();
         this.dispose();
     }//GEN-LAST:event_btnSearchClientMainActionPerformed
@@ -214,10 +201,6 @@ public class Menu extends javax.swing.JFrame {
         vtna.show();
         this.dispose();
     }//GEN-LAST:event_btnCheckinMainActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -260,7 +243,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnHistoryRoomMain;
     private javax.swing.JButton btnSearchClientMain;
     private javax.swing.JButton btnSearchReservationMain;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

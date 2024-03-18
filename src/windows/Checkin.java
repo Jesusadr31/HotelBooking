@@ -1,15 +1,25 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package windows;
+
+import client.Client;
+import hashtable.StatusHashTable;
+import hotelbookingproyect.Global;
+import javax.swing.JOptionPane;
+import list.List;
+import tree.Tree;
 
 /**
  *
  * @author Jesús
  */
 public class Checkin extends javax.swing.JFrame {
-
+    List RoomsAvailable = Global.getAvalaibleRoomNum();
+    List Rooms = Global.getRooms();
+    Tree roomNum = Global.getRoomNum();
+    Tree reser = Global.getReservation();
+    StatusHashTable table = Global.getStatus();
+    
+    
     /**
      * Creates new form Checkin
      */
@@ -31,17 +41,16 @@ public class Checkin extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtNameClientCheckin = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        txtNumRoomCheckin = new javax.swing.JTextField();
+        txtCIClientCheckin = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        txtLastNameClientCheckin = new javax.swing.JTextField();
         btnBackMain = new javax.swing.JButton();
         btnAssignment = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtAreaCheckin = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Check-in");
         setLocationByPlatform(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -59,31 +68,19 @@ public class Checkin extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Swis721 BlkEx BT", 0, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel2.setText("Ingresa los datos del cliente y el número de ");
+        jLabel2.setText("Ingresa la cédula del cliente y el número de ");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 370, 20));
 
         jLabel3.setFont(new java.awt.Font("Swis721 BlkEx BT", 0, 11)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 102, 102));
         jLabel3.setText("Habitación que se le asignará.");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 350, 30));
-        jPanel2.add(txtNameClientCheckin, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 200, 30));
-
-        jLabel4.setFont(new java.awt.Font("Swis721 BlkEx BT", 0, 11)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel4.setText("Número de Habitación");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 190, 30));
-
-        jLabel5.setFont(new java.awt.Font("Swis721 BlkEx BT", 0, 11)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel5.setText("Apellido del Cliente");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 170, 30));
-        jPanel2.add(txtNumRoomCheckin, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 200, 30));
+        jPanel2.add(txtCIClientCheckin, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 200, 30));
 
         jLabel6.setFont(new java.awt.Font("Swis721 BlkEx BT", 0, 11)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel6.setText("Nombre del Cliente");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 170, 30));
-        jPanel2.add(txtLastNameClientCheckin, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 200, 30));
+        jLabel6.setText("Cédula del Cliente");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 170, 30));
 
         btnBackMain.setBackground(new java.awt.Color(0, 153, 153));
         btnBackMain.setFont(new java.awt.Font("Swis721 BlkEx BT", 0, 12)); // NOI18N
@@ -94,19 +91,31 @@ public class Checkin extends javax.swing.JFrame {
                 btnBackMainActionPerformed(evt);
             }
         });
-        jPanel2.add(btnBackMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, 200, 40));
+        jPanel2.add(btnBackMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, 200, 40));
 
         btnAssignment.setBackground(new java.awt.Color(0, 153, 153));
         btnAssignment.setFont(new java.awt.Font("Swis721 BlkEx BT", 0, 12)); // NOI18N
         btnAssignment.setForeground(new java.awt.Color(255, 255, 255));
         btnAssignment.setText("Asignar");
-        jPanel2.add(btnAssignment, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, 140, 30));
+        btnAssignment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAssignmentActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnAssignment, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 140, 30));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 420, 460));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 420, 370));
 
         jPanel3.setBackground(new java.awt.Color(0, 153, 153));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 40, 280, 460));
+
+        txtAreaCheckin.setColumns(20);
+        txtAreaCheckin.setRows(5);
+        jScrollPane1.setViewportView(txtAreaCheckin);
+
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 240, 280));
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 40, 280, 370));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -116,6 +125,25 @@ public class Checkin extends javax.swing.JFrame {
         vtna.show();
         this.dispose();
     }//GEN-LAST:event_btnBackMainActionPerformed
+
+    private void btnAssignmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignmentActionPerformed
+        try{
+            int id = Integer.parseInt(txtCIClientCheckin.getText());
+            Client clientR = reser.searchClients(id);
+            
+            
+            Client clientS = table.CheckIn(clientR,RoomsAvailable,roomNum,reser);
+            reser.delete(id);
+
+            table.addClientFast(clientS);
+            
+            
+            txtAreaCheckin.setText(table.searchClient(clientS.getName(), clientS.getLastname()).showStatus());
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Error, valor inválido");
+        }
+    }//GEN-LAST:event_btnAssignmentActionPerformed
 
     /**
      * @param args the command line arguments
@@ -158,14 +186,12 @@ public class Checkin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField txtLastNameClientCheckin;
-    private javax.swing.JTextField txtNameClientCheckin;
-    private javax.swing.JTextField txtNumRoomCheckin;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea txtAreaCheckin;
+    private javax.swing.JTextField txtCIClientCheckin;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,15 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package windows;
+
+import client.Client;
+import hashtable.StatusHashTable;
+import hotelbookingproyect.Global;
+import javax.swing.JOptionPane;
+import list.List;
+import tree.Tree;
 
 /**
  *
  * @author Jesús
  */
 public class CheckOut extends javax.swing.JFrame {
-
+    List RoomsAvailable = Global.getAvalaibleRoomNum();
+    List Rooms = Global.getRooms();
+    Tree roomNum = Global.getRoomNum();
+    StatusHashTable table = Global.getStatus();
+    
     /**
      * Creates new form CheckOut
      */
@@ -32,12 +39,12 @@ public class CheckOut extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txtNameClientCheckout = new javax.swing.JTextField();
-        txtLastNameClientCheckout = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
         btnBackMain = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
+        btnCheckOut = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Check-Out");
         setLocationByPlatform(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -48,39 +55,28 @@ public class CheckOut extends javax.swing.JFrame {
         jLabel1.setText("Check-out");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 340, 40));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 40));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 40));
 
         jPanel2.setBackground(new java.awt.Color(0, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Swis721 BlkEx BT", 0, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel2.setText("Ingresa los datos del cliente para finalizar su estadía.");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 440, 20));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("para finalizar su estadía.");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 440, 20));
 
-        jLabel6.setFont(new java.awt.Font("Swis721 BlkEx BT", 0, 11)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Swis721 BlkEx BT", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 102, 102));
         jLabel6.setText("Nombre del Cliente");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 170, 30));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 170, 30));
 
         txtNameClientCheckout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNameClientCheckoutActionPerformed(evt);
             }
         });
-        jPanel2.add(txtNameClientCheckout, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 200, 30));
-
-        txtLastNameClientCheckout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLastNameClientCheckoutActionPerformed(evt);
-            }
-        });
-        jPanel2.add(txtLastNameClientCheckout, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 200, 30));
-
-        jLabel5.setFont(new java.awt.Font("Swis721 BlkEx BT", 0, 11)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel5.setText("Apellido del Cliente");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 170, 30));
+        jPanel2.add(txtNameClientCheckout, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 290, 30));
 
         btnBackMain.setBackground(new java.awt.Color(0, 153, 153));
         btnBackMain.setFont(new java.awt.Font("Swis721 BlkEx BT", 0, 12)); // NOI18N
@@ -91,13 +87,26 @@ public class CheckOut extends javax.swing.JFrame {
                 btnBackMainActionPerformed(evt);
             }
         });
-        jPanel2.add(btnBackMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 220, 40));
+        jPanel2.add(btnBackMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 220, 40));
+
+        btnCheckOut.setBackground(new java.awt.Color(0, 153, 153));
+        btnCheckOut.setFont(new java.awt.Font("Swis721 BlkEx BT", 0, 12)); // NOI18N
+        btnCheckOut.setForeground(new java.awt.Color(255, 255, 255));
+        btnCheckOut.setText("CheckOut");
+        btnCheckOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCheckOutActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnCheckOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 140, 30));
+
+        jLabel4.setFont(new java.awt.Font("Swis721 BlkEx BT", 0, 11)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Ingresa el nombre y apellido del cliente ");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 440, 20));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 460, 420));
-
-        jPanel3.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, 290, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -106,15 +115,33 @@ public class CheckOut extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNameClientCheckoutActionPerformed
 
-    private void txtLastNameClientCheckoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLastNameClientCheckoutActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtLastNameClientCheckoutActionPerformed
-
     private void btnBackMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackMainActionPerformed
         Menu vtna = new Menu();
         vtna.show();
         this.dispose();
     }//GEN-LAST:event_btnBackMainActionPerformed
+
+    private void btnCheckOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckOutActionPerformed
+        String name,lastname;
+         
+        
+         
+        try{
+            name = txtNameClientCheckout.getText();
+            lastname = txtLastNameClientCheckout.getText();
+            Client person = table.searchClient(name, lastname);
+            
+            roomNum.searchClientsHistory(Integer.parseInt(person.getRoomNum())).insertarFinal(person);
+            
+            table.deletClient(name, lastname);
+            
+            JOptionPane.showMessageDialog(null, "Se ha realizado el Checkout de manera exitosa.\nEl cliente "+ name + " ha finalizado su estadía en el hotel."
+            , "Estadía finalizada", JOptionPane.INFORMATION_MESSAGE);
+            
+        }catch(Exception e){
+        JOptionPane.showMessageDialog(null, "Error, valor inválido");
+        }
+    }//GEN-LAST:event_btnCheckOutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -153,14 +180,13 @@ public class CheckOut extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBackMain;
+    private javax.swing.JButton btnCheckOut;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField txtLastNameClientCheckout;
     private javax.swing.JTextField txtNameClientCheckout;
     // End of variables declaration//GEN-END:variables
 }
