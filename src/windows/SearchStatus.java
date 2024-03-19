@@ -129,13 +129,12 @@ public class SearchStatus extends javax.swing.JFrame {
         
                 
         try{
-            lastName = txtLastNameClient.getText();
-            name = txtFirstNameClient.getText();
+            String [] input = txtFirstNameClient.getText().split(" ");
             
-            
-           
-           
-           txtAreaClient.setText(status.searchClient(name, lastName).showStatus());
+            name = input[0];
+            lastName = input[1];
+
+           txtAreaClient.setText(status.searchClient(name, lastName).printClientStatus());
             
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Valores inválidos");

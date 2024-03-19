@@ -91,6 +91,23 @@ public class List {
         }return result;
     }
     
+    public String printClientStatus(){
+        NodeList currentNodo = head;
+        String result = "";
+        while(currentNodo != null){
+            result += "Numero de Habitacion:" + currentNodo.getClient().getRoomNum() + "\n";
+            result += "Nombre y apellido: " + currentNodo.getClient().getName() + " " + currentNodo.getClient().getLastname()+ "\n";
+            result += "Email: " + currentNodo.getClient().getMail() + "\n";
+            result += "Género: " + currentNodo.getClient().getGender() + "\n";
+            result += "Celular: " + currentNodo.getClient().getPhoneNumber() + "\n";
+            result += "Salida " + currentNodo.getClient().getArriveDate() + "\n";
+            
+            
+            currentNodo = currentNodo.getNext();
+            
+        }return result;
+    }
+    
     public String printRooms(){
         NodeList currentNodo = head;
         String result = "";

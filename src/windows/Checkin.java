@@ -128,17 +128,19 @@ public class Checkin extends javax.swing.JFrame {
 
     private void btnAssignmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignmentActionPerformed
         try{
+            if(txtCIClientCheckin.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "Porfavor introduzca un nombre y apellido");
+            }
             int id = Integer.parseInt(txtCIClientCheckin.getText());
             Client clientR = reser.searchClients(id);
-            
-            
+
             Client clientS = table.CheckIn(clientR,RoomsAvailable,roomNum,reser);
             reser.delete(id);
 
             table.addClientFast(clientS);
             
             
-            txtAreaCheckin.setText(table.searchClient(clientS.getName(), clientS.getLastname()).showStatus());
+           txtAreaCheckin.setText(table.searchClient(clientS.getName(), clientS.getLastname()).printClientStatus());
             
         }catch(Exception e){
             JOptionPane.showMessageDialog(null,"Error, valor inválido");

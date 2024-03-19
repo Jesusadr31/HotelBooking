@@ -5,6 +5,7 @@ import hashtable.StatusHashTable;
 import hotelbookingproyect.Global;
 import javax.swing.JOptionPane;
 import list.List;
+import list.NodeList;
 import tree.Tree;
 
 /**
@@ -16,12 +17,14 @@ public class CheckOut extends javax.swing.JFrame {
     List Rooms = Global.getRooms();
     Tree roomNum = Global.getRoomNum();
     StatusHashTable table = Global.getStatus();
+    List personEquals = new List();
     
     /**
      * Creates new form CheckOut
      */
     public CheckOut() {
         initComponents();
+        
     }
 
     /**
@@ -40,8 +43,11 @@ public class CheckOut extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         txtNameClientCheckout = new javax.swing.JTextField();
         btnBackMain = new javax.swing.JButton();
-        btnCheckOut = new javax.swing.JButton();
+        btnSearch = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        btnCheckOut = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtareainfo = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Check-Out");
@@ -89,16 +95,16 @@ public class CheckOut extends javax.swing.JFrame {
         });
         jPanel2.add(btnBackMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 220, 40));
 
-        btnCheckOut.setBackground(new java.awt.Color(0, 153, 153));
-        btnCheckOut.setFont(new java.awt.Font("Swis721 BlkEx BT", 0, 12)); // NOI18N
-        btnCheckOut.setForeground(new java.awt.Color(255, 255, 255));
-        btnCheckOut.setText("CheckOut");
-        btnCheckOut.addActionListener(new java.awt.event.ActionListener() {
+        btnSearch.setBackground(new java.awt.Color(0, 153, 153));
+        btnSearch.setFont(new java.awt.Font("Swis721 BlkEx BT", 0, 12)); // NOI18N
+        btnSearch.setForeground(new java.awt.Color(255, 255, 255));
+        btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCheckOutActionPerformed(evt);
+                btnSearchActionPerformed(evt);
             }
         });
-        jPanel2.add(btnCheckOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 140, 30));
+        jPanel2.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 140, 30));
 
         jLabel4.setFont(new java.awt.Font("Swis721 BlkEx BT", 0, 11)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 102, 102));
@@ -106,7 +112,21 @@ public class CheckOut extends javax.swing.JFrame {
         jLabel4.setText("Ingresa el nombre y apellido del cliente ");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 440, 20));
 
+        btnCheckOut.setText("jButton1");
+        btnCheckOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCheckOutActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnCheckOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 250, -1, -1));
+
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 460, 420));
+
+        txtareainfo.setColumns(20);
+        txtareainfo.setRows(5);
+        jScrollPane1.setViewportView(txtareainfo);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, 270, 150));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -121,25 +141,56 @@ public class CheckOut extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnBackMainActionPerformed
 
-    private void btnCheckOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckOutActionPerformed
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         String name,lastname;
-         
-        
-         
+ 
         try{
-            name = txtNameClientCheckout.getText();
-            lastname = txtLastNameClientCheckout.getText();
-            Client person = table.searchClient(name, lastname);
+            if(txtNameClientCheckout.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "Porfavor instruzca un nombre y apellido");
+            }
+            String [] input = txtNameClientCheckout.getText().split(" ");
+            name = input[0];
+            lastname = input [1];
+            txtareainfo.setText(table.searchClient(name, lastname).printClientStatus());
+            personEquals = table.searchClient(name, lastname);
             
-            roomNum.searchClientsHistory(Integer.parseInt(person.getRoomNum())).insertarFinal(person);
-            
-            table.deletClient(name, lastname);
             
             JOptionPane.showMessageDialog(null, "Se ha realizado el Checkout de manera exitosa.\nEl cliente "+ name + " ha finalizado su estadía en el hotel."
             , "Estadía finalizada", JOptionPane.INFORMATION_MESSAGE);
             
         }catch(Exception e){
         JOptionPane.showMessageDialog(null, "Error, valor inválido");
+        }
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void btnCheckOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckOutActionPerformed
+        String name,lastname,num;
+        
+        try{
+            if(personEquals.getSize()> 1){
+                String [] input = txtNameClientCheckout.getText().split(" ");
+                name = input[0];
+                lastname = input [1];
+                num = input[2];
+                NodeList currentNode = personEquals.getHead();
+                int cont = 0;
+                while(currentNode != null){
+                    if(cont == Integer.parseInt(num)-1){
+                        roomNum.searchClientsHistory(Integer.parseInt(num)).insertarFinal(currentNode.getClient());
+                        table.CheckOut(currentNode.getClient().getName(), currentNode.getClient().getLastname(),num);
+                    }
+                    currentNode = currentNode.getNext();
+                    cont++;
+                }
+                //roomNum.searchClientsHistory(Integer.parseInt(numRoom).insertarFinal(person.getHead().getClient());
+            }else{
+                table.CheckOut(personEquals.getHead().getClient().getName(), personEquals.getHead().getClient().getLastname(),personEquals.getHead().getClient().getRoomNum());
+                roomNum.searchClientsHistory(Integer.parseInt(personEquals.getHead().getClient().getRoomNum())).insertarFinal(personEquals.getHead().getClient());
+            }
+            
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_btnCheckOutActionPerformed
 
@@ -181,12 +232,15 @@ public class CheckOut extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBackMain;
     private javax.swing.JButton btnCheckOut;
+    private javax.swing.JButton btnSearch;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtNameClientCheckout;
+    private javax.swing.JTextArea txtareainfo;
     // End of variables declaration//GEN-END:variables
 }

@@ -38,11 +38,11 @@ public class ReadCsv {
     
     private List numRooms = new List();
     
-    private String filePathReservations = "C:\\Users\\Jesús\\OneDrive\\Escritorio\\HotelBookingProyect\\Booking_hotel - reservas.csv";
-    private String filePathStatus = "C:\\Users\\Jesús\\OneDrive\\Escritorio\\HotelBookingProyect\\Booking_hotel - estado.csv";
-    private String filePathHistory = "C:\\Users\\Jesús\\OneDrive\\Escritorio\\HotelBookingProyect\\Booking_hotel - Historico.csv";
-    private String filePathRooms= "C:\\Users\\Jesús\\OneDrive\\Escritorio\\HotelBookingProyect\\Booking_hotel - habitaciones.csv";
-    private String filePathRooms2= "C:\\Users\\Jesús\\OneDrive\\Escritorio\\HotelBookingProyect\\Booking_hotel - habitaciones.csv";
+    private String filePathReservations = "C:\\Users\\chris\\OneDrive\\Escritorio\\BorradorHotelBooking\\Booking_hotel - reservas.csv";
+    private String filePathStatus = "C:\\Users\\chris\\OneDrive\\Escritorio\\BorradorHotelBooking\\Booking_hotel - estado.csv";
+    private String filePathHistory = "C:\\Users\\chris\\OneDrive\\Escritorio\\BorradorHotelBooking\\Booking_hotel - Historico.csv";
+    private String filePathRooms= "C:\\Users\\chris\\OneDrive\\Escritorio\\BorradorHotelBooking\\Booking_hotel - habitaciones.csv";
+    
     String line = "";
     int cont = 0;
     
@@ -100,25 +100,13 @@ public class ReadCsv {
                 if (cont > 0) {
                     values_rooms = line.split(",");
                     numRooms.insertarFinalRoomsNum(Integer.parseInt(values_rooms[0]));
+                    Rooms.insertarFinalRooms(new Rooms(Integer.parseInt(values_rooms[0]), values_rooms[1], values_rooms[2]));
                 }
                 cont += 1;
             }
             cont = 0;
             
-            BufferedReader ro2 = new BufferedReader(new FileReader(filePathRooms2)); 
-            //Creando el arbol de habitaciones
-            while ((line = ro2.readLine()) != null) {
-                if (cont > 0) {
-                    values_rooms = line.split(",");
-                    Rooms.insertarFinalRooms(new Rooms(Integer.parseInt(values_rooms[0]), values_rooms[1], values_rooms[2]));
-                    rooms.addClientH(convertRoomNums(numRooms),clientHclass,Rooms);
-                    
-                }
-                cont += 1;
-            }
-            
-            
-            //JOptionPane.showMessageDialog(null, "SE HA IMPORTADO");
+            rooms.addClientH(convertRoomNums(numRooms),clientHclass,Rooms);
         
         }catch(IOException e){
             JOptionPane.showMessageDialog(null, "No se pudo importar");

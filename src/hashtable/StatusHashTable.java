@@ -58,18 +58,28 @@ public class StatusHashTable {
     }
     
     // Método para buscar un cliente por nombre y apellido
-    public Client searchClient(String name,String lastname){
+    public List searchClient(String name,String lastname){
+        List personsEquals = new List();
         int index = getHashIndex(name,lastname);
-        while (clientTable[index] != null && !clientTable[index].getName().equals(name) && !clientTable[index].getLastname().equals(lastname)) {
+        int startIndex = index; 
+        
+        while (clientTable[index] != null) {
+            if(clientTable[index].getName().equals(name) && clientTable[index].getLastname().equals(lastname)){
+                personsEquals.insertarInicio(clientTable[index]);
+            }
             index = (index + 1) % capacity; // Seguir buscando en caso de colisión
+            
+            if(index == startIndex){
+                break;
+            }
         }
-        return clientTable[index];
+        return personsEquals;
     }
     
     // Método para buscar un cliente por nombre y apellido
-    public void deletClient(String name,String lastname){
+    public void CheckOut(String name,String lastname,String roomNum){
         int index = getHashIndex(name,lastname);
-        while (clientTable[index] != null && !clientTable[index].getName().equals(name) && !clientTable[index].getLastname().equals(lastname)) {
+        while (clientTable[index] != null && !clientTable[index].getName().equals(name) && !clientTable[index].getLastname().equals(lastname) && !clientTable[index].getRoomNum().equals(roomNum)) {
             index = (index + 1) % capacity; // Seguir buscando en caso de colisión
         }
         clientTable[index]=null;
