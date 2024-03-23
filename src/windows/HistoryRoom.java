@@ -6,14 +6,18 @@ import javax.swing.JOptionPane;
 import tree.Tree;
 
 /**
- *
+ * Ventana para mostrar el historial de ocupación de una habitación específica.
+ * Permite al usuario buscar el historial de ocupación de una habitación por su número.
+ * Muestra la información detallada de todos los clientes que han ocupado esa habitación.
+ * 
  * @author Jesús
  */
 public class HistoryRoom extends javax.swing.JFrame {
     Tree rooms = Global.getRoomNum();
 
     /**
-     * Creates new form SearchStatus
+     * Constructor de la clase HistoryRoom.
+     * Inicializa los componentes de la interfaz gráfica.
      */
     public HistoryRoom() {
         initComponents();
@@ -133,18 +137,31 @@ public class HistoryRoom extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    /**
+     * Acción realizada al presionar el botón de búsqueda de historial de habitación.
+     * Busca el historial de ocupación de una habitación específica por su número.
+     * Muestra la información detallada de los clientes que han ocupado esa habitación.
+     * Si ocurre algún error durante la búsqueda, muestra un mensaje de error.
+     * 
+     * @param evt El evento de acción que desencadena esta acción.
+     */
     private void btnSearchHistoryRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchHistoryRoomActionPerformed
         try{
             int numRoom = Integer.parseInt(txtHistoryRoom.getText());
             txtAreaHistoryRoom.setText(rooms.searchClientsHistory(numRoom).printClient());
-            
-            
-            
+        
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Valor inválido");
         }
     }//GEN-LAST:event_btnSearchHistoryRoomActionPerformed
 
+    /**
+     * Acción realizada al presionar el botón para regresar al menú principal.
+     * Cierra la ventana actual y muestra la ventana del menú principal.
+     * 
+     * @param evt El evento de acción que desencadena esta acción.
+     */
     private void btnBackMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackMainActionPerformed
         Menu vtna = new Menu();
         vtna.show();
@@ -152,7 +169,10 @@ public class HistoryRoom extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackMainActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Método principal para ejecutar la aplicación.
+     * Crea y muestra la ventana de historial de habitaciones.
+     * 
+     * @param args Los argumentos de la línea de comandos (no utilizados en esta aplicación).
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

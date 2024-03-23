@@ -6,13 +6,18 @@ import javax.swing.JOptionPane;
 import tree.Tree;
 
 /**
- *
+ * Ventana para buscar reservaciones por número de cédula de identidad.
+ * Permite al usuario buscar una reservación por su número de cédula de identidad y ver los detalles de la reservación.
+ * 
  * @author Jesús
  */
 public class SearchReservation extends javax.swing.JFrame {
     Tree reser = Global.getReservation();
+    
+    
     /**
-     * Creates new form HistoryRoom
+     * Constructor de la clase SearchReservation.
+     * Inicializa los componentes de la interfaz gráfica, centra la ventana y desactiva la capacidad de redimensionamiento.
      */
     public SearchReservation() {
         initComponents();
@@ -113,12 +118,26 @@ public class SearchReservation extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    /**
+     * Acción realizada al presionar el botón para regresar al menú principal.
+     * Cierra la ventana actual y muestra la ventana del menú principal.
+     * 
+     * @param evt El evento de acción que desencadena esta acción.
+     */
     private void btnBackMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackMainActionPerformed
         Menu vtna = new Menu();
         vtna.show();
         this.dispose();
     }//GEN-LAST:event_btnBackMainActionPerformed
 
+    
+    /**
+     * Acción realizada al presionar el botón para buscar una reservación.
+     * Busca una reservación por número de cédula de identidad y muestra los detalles de la reservación si existe.
+     * 
+     * @param evt El evento de acción que desencadena esta acción.
+     */
     private void btnSearchReservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchReservationActionPerformed
         int ci = Integer.parseInt(txtCIReservation.getText());
         try{
@@ -132,7 +151,10 @@ public class SearchReservation extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSearchReservationActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Método principal para ejecutar la aplicación.
+     * Crea y muestra la ventana de búsqueda de reservaciones.
+     * 
+     * @param args Los argumentos de la línea de comandos (no utilizados en esta aplicación).
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

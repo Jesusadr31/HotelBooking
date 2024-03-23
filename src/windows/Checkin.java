@@ -9,19 +9,23 @@ import list.List;
 import tree.Tree;
 
 /**
- *
+ * Ventana de Check-In para registrar la entrada de un cliente.
+ * Permite asignar una habitación disponible a un cliente previamente registrado en una reserva.
+ * Después de realizar el check-in, se actualizan las estructuras de datos globales.
+ * Se implementa la interfaz gráfica utilizando Java Swing.
+ * 
  * @author Jesús
  */
 public class Checkin extends javax.swing.JFrame {
-    List RoomsAvailable = Global.getAvalaibleRoomNum();
-    List Rooms = Global.getRooms();
-    Tree roomNum = Global.getRoomNum();
-    Tree reser = Global.getReservation();
-    StatusHashTable table = Global.getStatus();
-    
+   List RoomsAvailable = Global.getAvalaibleRoomNum(); // Lista de habitaciones disponibles
+    List Rooms = Global.getRooms(); // Lista de todas las habitaciones
+    Tree roomNum = Global.getRoomNum(); // Árbol binario de búsqueda para gestionar el historial de habitaciones
+    Tree reser = Global.getReservation(); // Árbol binario de búsqueda para gestionar las reservas
+    StatusHashTable table = Global.getStatus(); // Tabla de hash para gestionar el estado de las habitaciones
     
     /**
-     * Creates new form Checkin
+     * Constructor de la clase Checkin.
+     * Inicializa los componentes de la interfaz gráfica.
      */
     public Checkin() {
         initComponents();
@@ -120,12 +124,25 @@ public class Checkin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    /**
+     * Acción realizada al presionar el botón "Regresar al Menú".
+     * Regresa al menú principal de la aplicación.
+     * @param evt Evento que desencadena la acción.
+     */
     private void btnBackMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackMainActionPerformed
         Menu vtna = new Menu();
         vtna.show();
         this.dispose();
     }//GEN-LAST:event_btnBackMainActionPerformed
 
+    
+    /**
+     * Acción realizada al presionar el botón "Asignación".
+     * Realiza el check-in de un cliente, asignándole una habitación disponible.
+     * Actualiza las estructuras de datos globales después del check-in.
+     * @param evt Evento que desencadena la acción.
+     */
     private void btnAssignmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignmentActionPerformed
         try{
             if(txtCIClientCheckin.getText().equals("")){
@@ -148,7 +165,8 @@ public class Checkin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAssignmentActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Método principal para ejecutar la aplicación.
+     * @param args Los argumentos de la línea de comandos.
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

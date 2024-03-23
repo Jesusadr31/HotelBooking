@@ -11,25 +11,33 @@ import list.NodeList;
 import tree.Tree;
 
 /**
- *
+ * Esta clase representa una tabla hash para gestionar el estado de los clientes en un hotel.
+ * Permite agregar clientes, buscar clientes por nombre y apellido, realizar el check-out de un cliente,
+ * asignar habitaciones, y gestionar la disponibilidad de habitaciones.
+ * 
  * @author chris
  */
 public class StatusHashTable {
     private Client [] clientTable;
     private int capacity;
     
-    
+    /**
+     * Constructor para la clase StatusHashTable.
+     * 
+     * @param capacity La capacidad inicial de la tabla hash.
+     */
     public StatusHashTable(int capacity){
         this.capacity = capacity;
         clientTable = new Client[capacity];
     }
+    
     /**
-     * Metodo que retorna el indice el de hash
-     * @param name
-     * @param lastname
-     * @return 
+     * Método que calcula el índice hash para un nombre y apellido dados.
+     * 
+     * @param name El nombre del cliente.
+     * @param lastname El apellido del cliente.
+     * @return El índice hash calculado.
      */
-    // Metodo para calcular el indice hash
     public int getHashIndex(String name, String lastname){
         // Suma los valores de ASCII de los caracteres del nombre y el apellido
         int characterSum = 0;
@@ -40,7 +48,20 @@ public class StatusHashTable {
         return characterSum % capacity;
     }
 
-    //Metodo para agregar un cliente al registro
+    /**
+     * Método para agregar un cliente a la tabla hash.
+     * 
+     * @param roomnum El número de habitación del cliente.
+     * @param ci La cédula de identidad del cliente.
+     * @param name El nombre del cliente.
+     * @param lastname El apellido del cliente.
+     * @param mail El correo electrónico del cliente.
+     * @param gender El género del cliente.
+     * @param RoomType El tipo de habitación reservada por el cliente.
+     * @param phoneNumber El número de teléfono del cliente.
+     * @param arrivalDate La fecha de llegada del cliente.
+     * @param departureDate La fecha de salida del cliente.
+     */
     public void addClientTable(String roomnum,String ci,String name,String lastname,String mail,String gender,String RoomType,String phoneNumber,String arrivalDate,String departureDate){
         int index = getHashIndex(name,lastname);
         while (clientTable[index] != null) {
@@ -49,6 +70,12 @@ public class StatusHashTable {
         clientTable[index]= new Client(roomnum,ci,name,lastname,mail,gender,RoomType,phoneNumber,arrivalDate,departureDate);
     }
     
+    
+    /**
+     * Método para agregar un cliente rápidamente a la tabla hash.
+     * 
+     * @param client El cliente a agregar.
+     */
     public void addClientFast(Client client){
         int index = getHashIndex(client.getName(),client.getLastname());
         while (clientTable[index] != null) {
@@ -57,7 +84,14 @@ public class StatusHashTable {
         clientTable[index]= client;
     }
     
-    // Método para buscar un cliente por nombre y apellido
+    
+    /**
+     * Método para buscar clientes por nombre y apellido.
+     * 
+     * @param name El nombre del cliente a buscar.
+     * @param lastname El apellido del cliente a buscar.
+     * @return Una lista de clientes con el mismo nombre y apellido.
+     */
     public List searchClient(String name,String lastname){
         List personsEquals = new List();
         int index = getHashIndex(name,lastname);
@@ -76,7 +110,14 @@ public class StatusHashTable {
         return personsEquals;
     }
     
-    // Método para buscar un cliente por nombre y apellido
+    
+    /**
+     * Método para realizar el check-out de un cliente.
+     * 
+     * @param name El nombre del cliente a hacer check-out.
+     * @param lastname El apellido del cliente a hacer check-out.
+     * @param roomNum El número de habitación del cliente a hacer check-out.
+     */
     public void CheckOut(String name,String lastname,String roomNum){
         int index = getHashIndex(name,lastname);
         while (clientTable[index] != null && !clientTable[index].getName().equals(name) && !clientTable[index].getLastname().equals(lastname) && !clientTable[index].getRoomNum().equals(roomNum)) {
@@ -85,12 +126,31 @@ public class StatusHashTable {
         clientTable[index]=null;
     }
     
+    
+    /**
+     * Método para asignar una habitación a un cliente.
+     * 
+     * @param name El nombre del cliente.
+     * @param lastname El apellido del cliente.
+     * @param RoomNum El número de habitación a asignar.
+     * @return El cliente con la habitación asignada.
+     */
     public Client setRoom(String name,String lastname,String RoomNum){
         int index = getHashIndex(name,lastname);
         return clientTable[index];
     }
     
-    //Le asignamos una habitacion adecuada a su tipo de habitacion
+    
+    
+    /**
+     * Método para realizar el check-in de un cliente, asignándole una habitación disponible.
+     * 
+     * @param clientR El cliente que desea hacer check-in.
+     * @param RoomsAvailable Lista de habitaciones disponibles.
+     * @param roomNum Árbol de habitaciones.
+     * @param clientRTree Árbol de clientes.
+     * @return El cliente con la habitación asignada.
+     */
     public Client CheckIn(Client clientR,List RoomsAvailable,Tree roomNum,Tree clientRTree){
         String typeRoom = clientR.getRoomType();
         int cont=0;

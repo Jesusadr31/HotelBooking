@@ -5,13 +5,17 @@ import hotelbookingproyect.ReadCsv;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * Ventana de menú principal que permite acceder a diferentes funcionalidades del sistema.
+ * Desde esta ventana, el usuario puede acceder a la búsqueda de reservaciones, check-out,
+ * búsqueda de clientes, historial de habitaciones y check-in.
+ * 
  * @author Jesús
  */
 public class Menu extends javax.swing.JFrame {
 
     /**
-     * Creates new form Menu
+     * Constructor de la clase Menu.
+     * Inicializa los componentes de la interfaz gráfica, centra la ventana y desactiva la capacidad de redimensionamiento.
      */
     public Menu() {
         initComponents();
@@ -163,18 +167,39 @@ public class Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    /**
+     * Acción realizada al presionar el botón para buscar reservaciones.
+     * Cierra la ventana actual y muestra la ventana de búsqueda de reservaciones.
+     * 
+     * @param evt El evento de acción que desencadena esta acción.
+     */
     private void btnSearchReservationMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchReservationMainActionPerformed
        SearchReservation vtna = new SearchReservation();
         vtna.show();
         this.dispose();
     }//GEN-LAST:event_btnSearchReservationMainActionPerformed
 
+    
+    /**
+     * Acción realizada al presionar el botón para realizar el check-out.
+     * Cierra la ventana actual y muestra la ventana de check-out.
+     * 
+     * @param evt El evento de acción que desencadena esta acción.
+     */
     private void btnCheckoutMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckoutMainActionPerformed
         CheckOut vtna = new CheckOut();
         vtna.show();
         this.dispose();
     }//GEN-LAST:event_btnCheckoutMainActionPerformed
 
+    
+    /**
+     * Acción realizada al presionar el botón para buscar clientes.
+     * Cierra la ventana actual y muestra la ventana de búsqueda de clientes.
+     * 
+     * @param evt El evento de acción que desencadena esta acción.
+     */
     private void btnSearchClientMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchClientMainActionPerformed
         
         SearchStatus vtna = new SearchStatus();
@@ -182,12 +207,26 @@ public class Menu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnSearchClientMainActionPerformed
 
+    
+    /**
+     * Acción realizada al presionar el botón para ver el historial de una habitación.
+     * Cierra la ventana actual y muestra la ventana de historial de habitaciones.
+     * 
+     * @param evt El evento de acción que desencadena esta acción.
+     */
     private void btnHistoryRoomMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistoryRoomMainActionPerformed
         HistoryRoom vtna = new HistoryRoom();
         vtna.show();
         this.dispose();
     }//GEN-LAST:event_btnHistoryRoomMainActionPerformed
 
+    
+    /**
+     * Acción realizada al presionar el botón para realizar el check-in.
+     * Cierra la ventana actual y muestra la ventana de check-in.
+     * 
+     * @param evt El evento de acción que desencadena esta acción.
+     */
     private void btnCheckinMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckinMainActionPerformed
         Checkin vtna = new Checkin();
         vtna.show();
@@ -195,7 +234,10 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCheckinMainActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Método principal para ejecutar la aplicación.
+     * Crea y muestra la ventana de menú principal.
+     * 
+     * @param args Los argumentos de la línea de comandos (no utilizados en esta aplicación).
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

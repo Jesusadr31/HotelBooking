@@ -9,18 +9,28 @@ import list.NodeList;
 import tree.Tree;
 
 /**
- *
+ * Ventana de Check-Out para finalizar la estadía de un cliente.
+ * Permite realizar el check-out de un cliente ingresando su nombre y apellido.
+ * También muestra la información del cliente y permite confirmar el check-out.
+ * Si el cliente tiene múltiples reservaciones, se solicita el número de habitación
+ * específico para el check-out.
+ * Si el cliente tiene una única reservación, se realiza el check-out de esa habitación directamente.
+ * Si se realizan cambios en el sistema, como el check-out de un cliente, estos cambios
+ * se reflejan en las estructuras de datos globales.
+ * Se implementa la interfaz gráfica utilizando Java Swing.
+ * 
  * @author Jesús
  */
 public class CheckOut extends javax.swing.JFrame {
-    List RoomsAvailable = Global.getAvalaibleRoomNum();
-    List Rooms = Global.getRooms();
-    Tree roomNum = Global.getRoomNum();
-    StatusHashTable table = Global.getStatus();
-    List personEquals = new List();
+    List RoomsAvailable = Global.getAvalaibleRoomNum(); // Lista de habitaciones disponibles
+    List Rooms = Global.getRooms(); // Lista de todas las habitaciones
+    Tree roomNum = Global.getRoomNum(); // Árbol binario de búsqueda para gestionar el historial de habitaciones
+    StatusHashTable table = Global.getStatus(); // Tabla de hash para gestionar el estado de las habitaciones
+    List personEquals = new List(); // Lista de clientes con nombres y apellidos coincidentes
     
     /**
-     * Creates new form CheckOut
+     * Constructor de la clase CheckOut.
+     * Inicializa los componentes de la interfaz gráfica.
      */
     public CheckOut() {
         initComponents();
@@ -131,16 +141,34 @@ public class CheckOut extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    /**
+    * Acción realizada al cambiar el texto en el campo de nombre del cliente para realizar el checkout.
+    * @param evt Evento que desencadena la acción.
+    */
     private void txtNameClientCheckoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameClientCheckoutActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNameClientCheckoutActionPerformed
 
+    
+    /**
+    * Acción realizada al presionar el botón "Regresar al Menú".
+    * Regresa al menú principal de la aplicación.
+    * @param evt Evento que desencadena la acción.
+    */
     private void btnBackMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackMainActionPerformed
+        // Regresar al menú principal
         Menu vtna = new Menu();
         vtna.show();
         this.dispose();
     }//GEN-LAST:event_btnBackMainActionPerformed
 
+    /**
+    * Acción realizada al presionar el botón de búsqueda.
+    * Busca al cliente por nombre y apellido y muestra su información si existe.
+    * Si no se ingresa ningún nombre o apellido, muestra un mensaje de error.
+    * @param evt Evento que desencadena la acción.
+    */
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         String name,lastname;
  
@@ -163,6 +191,15 @@ public class CheckOut extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSearchActionPerformed
 
+    /**
+    * Acción realizada al presionar el botón de check-out.
+    * Realiza el proceso de check-out para el cliente seleccionado.
+    * Si el cliente tiene múltiples reservaciones, se solicita el número de habitación específico.
+    * Se actualizan las estructuras de datos globales después del check-out.
+    * Si ocurre algún error durante el proceso, se muestra un mensaje de error.
+    * 
+    * @param evt El evento de acción que desencadena esta acción.
+    */
     private void btnCheckOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckOutActionPerformed
         String name,lastname,num;
         
@@ -195,7 +232,8 @@ public class CheckOut extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCheckOutActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Método principal para ejecutar la aplicación.
+     * @param args Los argumentos de la línea de comandos.
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

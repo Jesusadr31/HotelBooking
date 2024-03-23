@@ -6,7 +6,9 @@ import hotelbookingproyect.Global;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * Ventana para buscar el estado de un cliente por nombre y apellido.
+ * Permite al usuario buscar el estado de un cliente por su nombre y apellido y ver su información si existe.
+ * 
  * @author Jesús
  */
 public class SearchStatus extends javax.swing.JFrame {
@@ -14,7 +16,8 @@ public class SearchStatus extends javax.swing.JFrame {
     StatusHashTable status = Global.getStatus();
     
     /**
-     * Creates new form SearchReservation
+     * Constructor de la clase SearchStatus.
+     * Inicializa los componentes de la interfaz gráfica, centra la ventana y desactiva la capacidad de redimensionamiento.
      */
     public SearchStatus() {
         initComponents();
@@ -118,12 +121,26 @@ public class SearchStatus extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    /**
+     * Acción realizada al presionar el botón para regresar al menú principal.
+     * Cierra la ventana actual y muestra la ventana del menú principal.
+     * 
+     * @param evt El evento de acción que desencadena esta acción.
+     */
     private void btnBackMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackMainActionPerformed
         Menu vtna = new Menu();
         vtna.show();
         this.dispose();
     }//GEN-LAST:event_btnBackMainActionPerformed
 
+    
+    /**
+     * Acción realizada al presionar el botón para buscar un cliente.
+     * Busca un cliente por nombre y apellido y muestra su información si existe.
+     * 
+     * @param evt El evento de acción que desencadena esta acción.
+     */
     private void btnSearchClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchClientActionPerformed
         String lastName, name;
         
@@ -144,7 +161,10 @@ public class SearchStatus extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSearchClientActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Método principal para ejecutar la aplicación.
+     * Crea y muestra la ventana de búsqueda de estado de clientes.
+     * 
+     * @param args Los argumentos de la línea de comandos (no utilizados en esta aplicación).
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
