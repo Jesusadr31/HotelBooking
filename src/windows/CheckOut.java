@@ -55,9 +55,10 @@ public class CheckOut extends javax.swing.JFrame {
         btnBackMain = new javax.swing.JButton();
         btnSearch = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        btnCheckOut = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtareainfo = new javax.swing.JTextArea();
+        btnCheckOut = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Check-Out");
@@ -71,7 +72,7 @@ public class CheckOut extends javax.swing.JFrame {
         jLabel1.setText("Check-out");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 340, 40));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 40));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 40));
 
         jPanel2.setBackground(new java.awt.Color(0, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -122,21 +123,29 @@ public class CheckOut extends javax.swing.JFrame {
         jLabel4.setText("Ingresa el nombre y apellido del cliente ");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 440, 20));
 
-        btnCheckOut.setText("jButton1");
-        btnCheckOut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCheckOutActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnCheckOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 250, -1, -1));
-
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 460, 420));
+
+        jPanel3.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtareainfo.setColumns(20);
         txtareainfo.setRows(5);
         jScrollPane1.setViewportView(txtareainfo);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, 270, 150));
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 270, 150));
+
+        btnCheckOut.setBackground(new java.awt.Color(0, 255, 255));
+        btnCheckOut.setFont(new java.awt.Font("Swis721 BlkEx BT", 0, 12)); // NOI18N
+        btnCheckOut.setForeground(new java.awt.Color(0, 102, 102));
+        btnCheckOut.setText("Check-Out");
+        btnCheckOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCheckOutActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnCheckOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 140, 40));
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, 320, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -277,6 +286,7 @@ public class CheckOut extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtNameClientCheckout;
     private javax.swing.JTextArea txtareainfo;
