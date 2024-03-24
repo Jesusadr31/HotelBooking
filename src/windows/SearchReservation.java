@@ -139,12 +139,15 @@ public class SearchReservation extends javax.swing.JFrame {
      * @param evt El evento de acción que desencadena esta acción.
      */
     private void btnSearchReservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchReservationActionPerformed
-        int ci = Integer.parseInt(txtCIReservation.getText());
+        int ci;
         try{
+            if(txtCIReservation.getText().equals("")){
+                JOptionPane.showMessageDialog(null,"Introduzca un número de cédula");
+            }else{
+                ci = Integer.parseInt(txtCIReservation.getText());
             
-            
-            txtAreaReservation.setText(reser.searchClients(ci).showReservation());
-            
+                txtAreaReservation.setText(reser.searchClients(ci).showReservation());
+            }
         }catch(Exception e){
             JOptionPane.showMessageDialog(null,"Valor introducido inválido", "ERROR", JOptionPane.ERROR_MESSAGE);
         }

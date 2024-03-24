@@ -29,6 +29,8 @@ public class Checkin extends javax.swing.JFrame {
      */
     public Checkin() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
     }
 
     /**
@@ -154,11 +156,13 @@ public class Checkin extends javax.swing.JFrame {
             name = reser.searchClients(id).getName();
             lastname =reser.searchClients(id).getLastname();
             
-
             table.addClientFast(table.CheckIn(reser.searchClients(id),RoomsAvailable,roomNum,reser));
             reser.delete(id);
             
            txtAreaCheckin.setText(table.searchClient(name, lastname).printClientStatus());
+           
+           JOptionPane.showMessageDialog(null, "Se ha realizado el Check-in exitosamente al cliente " + name + " " + lastname
+            , "CheckIn Realizado", JOptionPane.INFORMATION_MESSAGE);
             
         }catch(Exception e){
             JOptionPane.showMessageDialog(null,"Error, valor inválido");

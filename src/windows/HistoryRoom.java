@@ -21,6 +21,8 @@ public class HistoryRoom extends javax.swing.JFrame {
      */
     public HistoryRoom() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
     }
 
     /**

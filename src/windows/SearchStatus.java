@@ -146,13 +146,23 @@ public class SearchStatus extends javax.swing.JFrame {
         
                 
         try{
-            String [] input = txtFirstNameClient.getText().split(" ");
+            if(txtFirstNameClient.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "Introduzca un nombre y apellido");
+            }else{
+                String [] input = txtFirstNameClient.getText().split(" ");
             
-            name = input[0];
-            lastName = input[1];
+                name = input[0];
+                lastName = input[1];
+                if(input.length > 2){
+                    JOptionPane.showMessageDialog(null, "No puedes ingresar datos más de los permitidos.");
+                }else if(input.length < 2){
+                    JOptionPane.showMessageDialog(null, "Error, falta el apellido.");
+                }else{
+                    txtAreaClient.setText(status.searchClient(name, lastName).printClientStatus());
+                }
 
-           txtAreaClient.setText(status.searchClient(name, lastName).printClientStatus());
-            
+                
+           }
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Valores inválidos");
         }

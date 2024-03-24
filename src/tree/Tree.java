@@ -73,7 +73,7 @@ public class Tree {
      */
     public void addClientH(int[] numRooms,List clienth,List rooms){
         root = insertClient(numRooms,0,numRooms.length-1,clienth,rooms);
-        size++;
+        size = numRooms.length;
     }
     
     
@@ -93,12 +93,14 @@ public class Tree {
         }
         // Obtener el elemento medio del arreglo y hacerlo raíz
         int middle = (start + end) / 2;
+        
         NodeTree node = new NodeTree(numRooms[middle],ClientList(clienth,middle),objroom(rooms,middle));
        
         node.setLeft(insertClient(numRooms, start, middle - 1,clienth,rooms));
         node.setRight(insertClient(numRooms, middle + 1,end,clienth,rooms));
         
         return node;
+        
     }
 
     
