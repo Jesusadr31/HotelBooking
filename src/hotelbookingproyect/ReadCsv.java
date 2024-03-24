@@ -46,10 +46,10 @@ public class ReadCsv {
     private List numRooms = new List();
     
     // Rutas de los archivos CSV
-    private String filePathReservations = "..\\..\\..\\Booking_hotel - reservas.csv";
-    private String filePathStatus = "C:\\Users\\chris\\OneDrive\\Escritorio\\BorradorHotelBooking\\Booking_hotel - estado.csv";
-    private String filePathHistory = "C:\\Users\\chris\\OneDrive\\Escritorio\\BorradorHotelBooking\\Booking_hotel - Historico.csv";
-    private String filePathRooms= "C:\\Users\\chris\\OneDrive\\Escritorio\\BorradorHotelBooking\\Booking_hotel - habitaciones.csv";
+    private String filePathReservations = "..\\Booking_hotel - reservas.csv";
+    private String filePathStatus = "..\\Booking_hotel - estado.csv";
+    private String filePathHistory = "..\\Booking_hotel - Historico.csv";
+    private String filePathRooms= "..\\Booking_hotel - habitaciones.csv";
     
     String line = ""; // Variable para almacenar cada línea leída de los archivos
     int cont = 0; // Contador para controlar el proceso de lectura
@@ -127,6 +127,7 @@ public class ReadCsv {
                 cont += 1;
             }
             cont = 0;
+            
             
             // Agrega los datos de las habitaciones al árbol de habitaciones
             rooms.addClientH(convertRoomNums(numRooms),clientHclass,Rooms);

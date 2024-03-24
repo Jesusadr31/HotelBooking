@@ -157,7 +157,6 @@ public class StatusHashTable {
         while(cont < roomNum.getSize()) {           
             Random random = new Random();
             int randomNum = random.nextInt(0,roomNum.getSize());
-            
             Rooms roo = roomNum.searchRooms(randomNum);
             NodeList currentNode = RoomsAvailable.getHead();
             while(currentNode!=null){

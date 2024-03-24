@@ -34,6 +34,8 @@ public class CheckOut extends javax.swing.JFrame {
      */
     public CheckOut() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
         
     }
 
@@ -190,11 +192,7 @@ public class CheckOut extends javax.swing.JFrame {
             lastname = input [1];
             txtareainfo.setText(table.searchClient(name, lastname).printClientStatus());
             personEquals = table.searchClient(name, lastname);
-            
-            
-            JOptionPane.showMessageDialog(null, "Se ha realizado el Checkout de manera exitosa.\nEl cliente "+ name + " ha finalizado su estadía en el hotel."
-            , "Estadía finalizada", JOptionPane.INFORMATION_MESSAGE);
-            
+  
         }catch(Exception e){
         JOptionPane.showMessageDialog(null, "Error, valor inválido");
         }
@@ -210,9 +208,10 @@ public class CheckOut extends javax.swing.JFrame {
     * @param evt El evento de acción que desencadena esta acción.
     */
     private void btnCheckOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckOutActionPerformed
-        String name,lastname,num;
+        
         
         try{
+            String name,lastname,num;
             if(personEquals.getSize()> 1){
                 String [] input = txtNameClientCheckout.getText().split(" ");
                 name = input[0];
@@ -228,12 +227,15 @@ public class CheckOut extends javax.swing.JFrame {
                     currentNode = currentNode.getNext();
                     cont++;
                 }
+                //Validar si hay dos personas con el mismo nombre
                 //roomNum.searchClientsHistory(Integer.parseInt(numRoom).insertarFinal(person.getHead().getClient());
             }else{
                 table.CheckOut(personEquals.getHead().getClient().getName(), personEquals.getHead().getClient().getLastname(),personEquals.getHead().getClient().getRoomNum());
                 roomNum.searchClientsHistory(Integer.parseInt(personEquals.getHead().getClient().getRoomNum())).insertarFinal(personEquals.getHead().getClient());
             }
             
+            JOptionPane.showMessageDialog(null, "El cliente ha finalizado su estadía en el hotel."
+            , "Estadía finalizada", JOptionPane.INFORMATION_MESSAGE);
             
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e);

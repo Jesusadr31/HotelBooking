@@ -29,6 +29,8 @@ public class Checkin extends javax.swing.JFrame {
      */
     public Checkin() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
     }
 
     /**
@@ -154,7 +156,6 @@ public class Checkin extends javax.swing.JFrame {
             name = reser.searchClients(id).getName();
             lastname =reser.searchClients(id).getLastname();
             
-
             table.addClientFast(table.CheckIn(reser.searchClients(id),RoomsAvailable,roomNum,reser));
             reser.delete(id);
             
