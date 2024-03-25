@@ -63,9 +63,10 @@ public class StatusHashTable {
      * @param departureDate La fecha de salida del cliente.
      */
     public void addClientTable(String roomnum,String ci,String name,String lastname,String mail,String gender,String RoomType,String phoneNumber,String arrivalDate,String departureDate){
-        int index = getHashIndex(name,lastname);
+        int index = getHashIndex(name.toLowerCase(),lastname.toLowerCase());
         while (clientTable[index] != null) {
             index = (index + 1) % capacity; // Sondeo lineal para resolver colisiones
+            
         }
         clientTable[index]= new Client(roomnum,ci,name,lastname,mail,gender,RoomType,phoneNumber,arrivalDate,departureDate);
     }
@@ -77,7 +78,7 @@ public class StatusHashTable {
      * @param client El cliente a agregar.
      */
     public void addClientFast(Client client){
-        int index = getHashIndex(client.getName(),client.getLastname());
+        int index = getHashIndex(client.getName().toLowerCase(),client.getLastname().toLowerCase());
         while (clientTable[index] != null) {
             index = (index + 1) % capacity; // Sondeo lineal para resolver colisiones
         }
@@ -94,11 +95,11 @@ public class StatusHashTable {
      */
     public List searchClient(String name,String lastname){
         List personsEquals = new List();
-        int index = getHashIndex(name,lastname);
+        int index = getHashIndex(name.toLowerCase(),lastname.toLowerCase());
         int startIndex = index; 
         
         while (clientTable[index] != null) {
-            if(clientTable[index].getName().equals(name) && clientTable[index].getLastname().equals(lastname)){
+            if(clientTable[index].getName().toLowerCase().equals(name.toLowerCase()) && clientTable[index].getLastname().toLowerCase().equals(lastname.toLowerCase())){
                 personsEquals.insertarInicio(clientTable[index]);
             }
             index = (index + 1) % capacity; // Seguir buscando en caso de colisión
@@ -119,7 +120,7 @@ public class StatusHashTable {
      * @param roomNum El número de habitación del cliente a hacer check-out.
      */
     public void CheckOut(String name,String lastname,String roomNum){
-        int index = getHashIndex(name,lastname);
+        int index = getHashIndex(name.toLowerCase(),lastname.toLowerCase());
         while (clientTable[index] != null && !clientTable[index].getName().equals(name) && !clientTable[index].getLastname().equals(lastname) && !clientTable[index].getRoomNum().equals(roomNum)) {
             index = (index + 1) % capacity; // Seguir buscando en caso de colisión
         }
@@ -136,7 +137,7 @@ public class StatusHashTable {
      * @return El cliente con la habitación asignada.
      */
     public Client setRoom(String name,String lastname,String RoomNum){
-        int index = getHashIndex(name,lastname);
+        int index = getHashIndex(name.toLowerCase(),lastname.toLowerCase());
         return clientTable[index];
     }
     

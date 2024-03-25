@@ -158,7 +158,12 @@ public class SearchStatus extends javax.swing.JFrame {
                 }else if(input.length < 2){
                     JOptionPane.showMessageDialog(null, "Error, falta el apellido.");
                 }else{
-                    txtAreaClient.setText(status.searchClient(name, lastName).printClientStatus());
+                    if(status.searchClient(name, lastName).getHead() == null){
+                        JOptionPane.showMessageDialog(null, "El cliente no esta hospedado en el Hotel");
+                    }else{
+                        txtAreaClient.setText(status.searchClient(name, lastName).printClientStatus());
+                    }
+                   
                 }
 
                 

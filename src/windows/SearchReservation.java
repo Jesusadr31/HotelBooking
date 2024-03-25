@@ -140,13 +140,28 @@ public class SearchReservation extends javax.swing.JFrame {
      */
     private void btnSearchReservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchReservationActionPerformed
         int ci;
+        String [] numeros;
+        String id = "";
         try{
             if(txtCIReservation.getText().equals("")){
                 JOptionPane.showMessageDialog(null,"Introduzca un número de cédula");
             }else{
-                ci = Integer.parseInt(txtCIReservation.getText());
+                
+                numeros = txtCIReservation.getText().split("\\.");
+                
+                if(numeros.length == 1){
+                    ci = Integer.parseInt(numeros[0]);
             
-                txtAreaReservation.setText(reser.searchClients(ci).showReservation());
+                    txtAreaReservation.setText(reser.searchClients(ci).showReservation());
+                }else{
+                    for (int i = 0; i < 3; i++) {
+                        id += numeros[i];
+                    }
+                    ci = Integer.parseInt(id);
+            
+                    txtAreaReservation.setText(reser.searchClients(ci).showReservation());
+                }
+ 
             }
         }catch(Exception e){
             JOptionPane.showMessageDialog(null,"Valor introducido inválido", "ERROR", JOptionPane.ERROR_MESSAGE);

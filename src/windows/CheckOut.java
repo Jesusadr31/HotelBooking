@@ -233,7 +233,7 @@ public class CheckOut extends javax.swing.JFrame {
                 roomNum.searchClientsHistory(Integer.parseInt(personEquals.getHead().getClient().getRoomNum())).insertarFinal(personEquals.getHead().getClient());
             }
             
-            JOptionPane.showMessageDialog(null, "El cliente " + name + lastname + "ha finalizado su estadía en el hotel."
+            JOptionPane.showMessageDialog(null, "El cliente " + name +" "+ lastname + "ha finalizado su estadía en el hotel."
             , "Estadía finalizada", JOptionPane.INFORMATION_MESSAGE);
             
         }catch(Exception e){
