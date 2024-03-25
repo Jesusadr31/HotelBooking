@@ -147,12 +147,26 @@ public class Checkin extends javax.swing.JFrame {
      */
     private void btnAssignmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignmentActionPerformed
         String name,lastname;
+        String [] numeros;
+        String num= "";
+        int id;
         
         try{
             if(txtCIClientCheckin.getText().equals("")){
-                JOptionPane.showMessageDialog(null, "Porfavor introduzca un nombre y apellido");
+                JOptionPane.showMessageDialog(null, "Porfavor introduzca una cedula valida");
             }
-            int id = Integer.parseInt(txtCIClientCheckin.getText());
+            
+            numeros = txtCIClientCheckin.getText().split("\\.");
+                
+                if(numeros.length == 1){
+                    id = Integer.parseInt(numeros[1]);
+                }else{
+                    for (int i = 0; i < 3; i++) {
+                        num += numeros[i];
+                    }
+                    id = Integer.parseInt(num);
+                }
+            
             name = reser.searchClients(id).getName();
             lastname =reser.searchClients(id).getLastname();
             

@@ -76,7 +76,7 @@ public class Client {
         result += "Email: " + mail + "\n";
         result += "Género: " + gender + "\n";
         result += "Tipo de habitación: " + roomType + "\n";
-        result += "Telefono" + phoneNumber + "\n";
+        result += "Telefono: " + phoneNumber + "\n";
         result += "Llegada: " + arriveDate + "\n";
         result += "Salida: " + departureDate + "\n";
         return result;
@@ -89,11 +89,11 @@ public class Client {
      */
     public String showStatus() {
         String result = "";
-        result += "Numero Habitacion :" + roomNum + "\n";
+        result += "Numero Habitacion: " + roomNum + "\n";
         result += "Nombre y apellido: " + name + " " + lastname + "\n";
         result += "Email: " + mail + "\n";
         result += "Género: " + gender + "\n";
-        result += "Telefono" + phoneNumber + "\n";
+        result += "Telefono: " + phoneNumber + "\n";
         result += "Llegada: " + arriveDate + "\n";
         return result;
     }
